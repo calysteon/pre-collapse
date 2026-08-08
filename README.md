@@ -1,5 +1,12 @@
 # Pre-Collapse: Vulnerability-Class Signatures in the Activation Space of Language Models
 
+> **This is not only a position.** A working reference implementation of the
+> (signature → patch) loop lives in [`engine/`](engine/): a small model reads code, its
+> pre-collapse signature indexes a database that returns the patch for the class, and an
+> AddressSanitizer oracle confirms the patch turns the crashing input safe. On a four-class
+> corpus with `microsoft/phi-1_5`: 12/12 signature-selected patches verified end-to-end,
+> 83% held-out class detection. See [`engine/README.md`](engine/README.md).
+
 ---
 
 ## The position
@@ -213,6 +220,30 @@ Associate the signature with the patch, and vulnerability research changes chara
 open-ended search for unknown bugs to systematic detection of where known bugs recur, with the corresponding
 patch attached, across an ecosystem that copies faster than it patches. The activation signature is what links
 a known bug to its copies, and the pre-collapse representation is where that link is found.
+
+---
+
+## Reference implementation
+
+[`engine/`](engine/) makes the loop concrete and runnable end to end:
+
+- **Signature** — a small model (`microsoft/phi-1_5`) reads each program; the mean-pooled
+  hidden states over a deep layer band reduce to one L2-normalized vector (`signature.py`).
+- **Index = patch selection** — the vector's nearest class centroid is looked up; that single
+  lookup returns both the vulnerability class and the patch for it (`database.py`).
+- **Patch** — the class's donor fix, matched on idiom rather than identifiers so it survives
+  renaming, is applied to the code (`patch.py`).
+- **Ground truth** — the patched program is compiled under AddressSanitizer and run on the
+  same proof-of-concept input that crashed the original; only a VULNERABLE→SAFE transition
+  counts as a fix (`oracle.py`).
+
+The corpus is four memory-safety classes (CWE-121/122/190/416), each with a canonical case
+plus renamed and refactored clones. Results on this set: **12/12** signature-selected patches
+confirmed by the oracle (all clones included), **83%** held-out (leave-one-out) class
+detection versus 25% chance — with the residual errors falling exactly between the two
+classes that share a heap out-of-bounds write. The whole loop runs offline from committed
+signatures; the model path regenerates them. This demonstrates the mechanism at small scale;
+the ecosystem-scale database the position argues for is future work, not a claim made here.
 
 ---
 

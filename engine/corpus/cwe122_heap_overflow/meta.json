@@ -1,0 +1,1 @@
+{"id":"cwe122_heap_overflow","cwe":"CWE-122","class_id":"heap_buffer_overflow","title":"Unchecked length copy into a fixed heap record","vuln_function":"handle","patch_class":"clamp_heap_copy","poc":"poc.bin","expect_vuln":"VULNERABLE","expect_patched":"SAFE"}

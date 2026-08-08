@@ -1,0 +1,1 @@
+{"id":"cwe190_int_overflow","cwe":"CWE-190","class_id":"integer_overflow","title":"Integer overflow in allocation size","vuln_function":"handle","patch_class":"checked_alloc_multiply","poc":"poc.bin","expect_vuln":"VULNERABLE","expect_patched":"SAFE"}

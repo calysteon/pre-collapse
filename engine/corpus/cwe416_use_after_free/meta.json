@@ -1,0 +1,1 @@
+{"id":"cwe416_use_after_free","cwe":"CWE-416","class_id":"use_after_free","title":"Use-after-free through an uncleared pointer","vuln_function":"handle","patch_class":"null_after_free","poc":"poc.bin","expect_vuln":"VULNERABLE","expect_patched":"SAFE"}
