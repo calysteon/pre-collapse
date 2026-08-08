@@ -1,10 +1,10 @@
-# pre-collapse/engine — the (signature → patch) loop, made runnable
+# pre-collapse/engine: the (signature → patch) loop, made runnable
 
 The [paper](../README.md) argues the unit of security knowledge should be
 **(activation signature, patch)** instead of **(pattern, label)**: when a small model
 reads code it forms a representation of the code's latent vulnerability *class*, that
 representation is a usable index, and the matching database entry already carries the patch
-for the class — so **detection and patch selection become one operation**.
+for the class, so **detection and patch selection become one operation**.
 
 This directory is that claim as working code, on a small corpus, closing the whole loop:
 
@@ -14,7 +14,7 @@ This directory is that claim as working code, on a small corpus, closing the who
       ▼   read the model's activations (microsoft/phi-1_5)
    pre-collapse SIGNATURE  ──────────────  signature.py
       │
-      ▼   nearest class centroid — this lookup ALSO returns the patch
+      ▼   nearest class centroid, this lookup ALSO returns the patch
    (class, patch)  ────────────────────── database.py
       │
       ▼   apply the class's donor patch
@@ -47,7 +47,7 @@ Example (integer-overflow class, verbatim output):
 ```
 
 `renamed_table.c` shares no identifiers with the canonical `vuln.c` of its class, yet its
-signature lands on the same centroid and the same patch fixes it — the modification-survival
+signature lands on the same centroid and the same patch fixes it, the modification-survival
 property the paper claims, and the one that syntactic matchers lack.
 
 To sign code with the model live instead of serving fixtures:
@@ -65,17 +65,17 @@ total). Every recipient is a real, compilable program that ASan aborts on its Po
 
 | Class | CWE | Donor patch | ASan verdict |
 |---|---|---|---|
-| `stack_buffer_overflow` | CWE-121 | `bounded_string_copy` — unbounded copy → `snprintf(dst, sizeof dst, …)` | stack-buffer-overflow |
-| `heap_buffer_overflow` | CWE-122 | `clamp_heap_copy` — clamp `memcpy` length to the allocation | heap-buffer-overflow |
-| `integer_overflow` | CWE-190 | `checked_alloc_multiply` — `malloc(a*b)` → `calloc(a,b)` (checked multiply) | heap-buffer-overflow |
-| `use_after_free` | CWE-416 | `null_after_free` — null the pointer at `free` so post-free guards take effect | heap-use-after-free |
+| `stack_buffer_overflow` | CWE-121 | `bounded_string_copy`: unbounded copy → `snprintf(dst, sizeof dst, …)` | stack-buffer-overflow |
+| `heap_buffer_overflow` | CWE-122 | `clamp_heap_copy`: clamp `memcpy` length to the allocation | heap-buffer-overflow |
+| `integer_overflow` | CWE-190 | `checked_alloc_multiply`: `malloc(a*b)` → `calloc(a,b)` (checked multiply) | heap-buffer-overflow |
+| `use_after_free` | CWE-416 | `null_after_free`: null the pointer at `free` so post-free guards take effect | heap-use-after-free |
 
 The donor patches match on the class *idiom*, not on variable names, so they apply
-unchanged to renamed clones — the same invariance the selecting signature has.
+unchanged to renamed clones, the same invariance the selecting signature has.
 
 ## Measured results (microsoft/phi-1_5, 1.3B, CPU)
 
-- **End-to-end: 12/12** recipients — the signature-selected patch is confirmed by the
+- **End-to-end: 12/12** recipients, the signature-selected patch is confirmed by the
   oracle (VULNERABLE → SAFE on the same PoC), including all 8 renamed/refactored variants.
 - **Held-out detection (leave-one-out): 10/12 (83%)** vs 25% chance. Both misses are
   heap-overflow ↔ integer-overflow, which share a heap OOB write and sit closest in
@@ -90,7 +90,7 @@ code-specialized models, and more members per class, should widen those margins.
 ```
 precollapse/
   signature.py   pre-collapse signature: ModelBackend (real) + FixtureBackend (offline)
-  database.py    SignaturePatchDB — centroids keyed to patches; match() = detect + select
+  database.py    SignaturePatchDB, centroids keyed to patches; match() = detect + select
   patch.py       per-class donor patches (idiom-matching, name-independent)
   oracle.py      compile under ASan+UBSan, run the PoC → VULNERABLE / SAFE / BROKEN
   pipeline.py    signature → match → patch → verify
@@ -100,10 +100,10 @@ signatures/      committed real signatures + MODEL_CARD.md (how they were produc
 db/              the built (signature → patch) database
 tools/           compute_signatures.py · build_db.py · evaluate.py
 scripts/demo.py  the full loop, printed stage by stage
-tests/           pytest — oracle, matching, pipeline (offline); test_model.py (needs weights)
+tests/           pytest, oracle, matching, pipeline (offline); test_model.py (needs weights)
 ```
 
-## Honest state — what is real vs. what is scoped
+## Honest state: what is real vs. what is scoped
 
 **Real and verified here (every run):**
 - The oracle genuinely compiles and executes; VULNERABLE/SAFE come from ASan, not a label.
@@ -122,7 +122,7 @@ tests/           pytest — oracle, matching, pipeline (offline); test_model.py 
   a free split from its guarded use across functions needs interprocedural reasoning the
   regex transforms do not attempt.
 - **Detection can confuse adjacent classes** (heap vs integer overflow). The signature is a
-  proposal; the oracle is ground truth — a wrong class yields a patch the oracle rejects
+  proposal; the oracle is ground truth, a wrong class yields a patch the oracle rejects
   rather than a silent bad fix.
 - **Fixtures cover the corpus only.** Signing new code needs the model (`--model`); the
   offline backend refuses unknown code rather than inventing a signature.

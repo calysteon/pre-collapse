@@ -1,17 +1,17 @@
 # Pre-Collapse: Vulnerability-Class Signatures in the Activation Space of Language Models
 
-> **This is not only a position — it is a proposed standard: [3S](SPECIFICATION.md).**
+> **This is not only a position, it is a proposed standard: [3S](SPECIFICATION.md).**
 > **3S** (the **S**emantic **S**ignature **S**pecification, [`SPECIFICATION.md`](SPECIFICATION.md))
-> defines a portable, obfuscation-invariant format for expressing what code *does* — the
+> defines a portable, obfuscation-invariant format for expressing what code *does*, the
 > behavioral successor to YARA (syntactic rules) and CWE (hand-authored taxonomy). Where a
-> YARA rule says *"these bytes appear,"* a 3S signature says *"this code behaves like this"* —
+> YARA rule says *"these bytes appear,"* a 3S signature says *"this code behaves like this,"* 
 > and keeps saying it after the bytes change.
 >
 > It ships with a **working reference implementation** and measured proof, not vaporware:
-> - [`engine/`](engine/) — the `(signature → patch)` loop on real C vulnerabilities: a
+> - [`engine/`](engine/), the `(signature → patch)` loop on real C vulnerabilities: a
 >   small model reads code, its signature indexes a database that returns the patch, and an
 >   AddressSanitizer oracle confirms the fix. 12/12 patches verified, 83% held-out detection.
-> - [`supply-chain/`](supply-chain/) — the standard applied to the live 2025-26 npm attacks:
+> - [`supply-chain/`](supply-chain/), the standard applied to the live 2025-26 npm attacks:
 >   deobfuscate → sign → detect real malware through its obfuscation (~0.93 ROC-AUC), and a
 >   worked example catching the real `chalk/debug` crypto-clipper.
 
@@ -235,20 +235,20 @@ a known bug to its copies, and the pre-collapse representation is where that lin
 
 [`engine/`](engine/) makes the loop concrete and runnable end to end:
 
-- **Signature** — a small model (`microsoft/phi-1_5`) reads each program; the mean-pooled
+- **Signature**: a small model (`microsoft/phi-1_5`) reads each program; the mean-pooled
   hidden states over a deep layer band reduce to one L2-normalized vector (`signature.py`).
-- **Index = patch selection** — the vector's nearest class centroid is looked up; that single
+- **Index = patch selection**: the vector's nearest class centroid is looked up; that single
   lookup returns both the vulnerability class and the patch for it (`database.py`).
-- **Patch** — the class's donor fix, matched on idiom rather than identifiers so it survives
+- **Patch**: the class's donor fix, matched on idiom rather than identifiers so it survives
   renaming, is applied to the code (`patch.py`).
-- **Ground truth** — the patched program is compiled under AddressSanitizer and run on the
+- **Ground truth**: the patched program is compiled under AddressSanitizer and run on the
   same proof-of-concept input that crashed the original; only a VULNERABLE→SAFE transition
   counts as a fix (`oracle.py`).
 
 The corpus is four memory-safety classes (CWE-121/122/190/416), each with a canonical case
 plus renamed and refactored clones. Results on this set: **12/12** signature-selected patches
 confirmed by the oracle (all clones included), **83%** held-out (leave-one-out) class
-detection versus 25% chance — with the residual errors falling exactly between the two
+detection versus 25% chance, with the residual errors falling exactly between the two
 classes that share a heap out-of-bounds write. The whole loop runs offline from committed
 signatures; the model path regenerates them. This demonstrates the mechanism at small scale;
 the ecosystem-scale database the position argues for is future work, not a claim made here.

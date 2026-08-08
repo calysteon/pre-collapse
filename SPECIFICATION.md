@@ -1,18 +1,18 @@
-# 3S — Semantic Signature Specification
+# 3S: Semantic Signature Specification
 
 **Version 0.1 (draft proposal) · a portable format for obfuscation-invariant code signatures**
 
 **3S** (the three S's of **S**emantic **S**ignature **S**pecification) is to behavior what
-YARA is to bytes: a shared, portable format for *signatures* — but keyed on what code
+YARA is to bytes: a shared, portable format for *signatures*, but keyed on what code
 **does**, not how it is written. A 3S signature is written `3S:<model>/<family>`, and a 3S
 database of families is the semantic counterpart to a YARA ruleset.
 
-> For thirty years the unit of security knowledge has been a *syntactic* pair — a **YARA**
+> For thirty years the unit of security knowledge has been a *syntactic* pair, a **YARA**
 > rule (bytes/strings), a **CVE** fingerprint, a **CWE** class written in prose. Syntax
 > breaks the moment code is renamed, refactored, minified, or obfuscated. This document
 > specifies the alternative the [Pre-Collapse white paper](README.md) argues for: a
-> **semantic signature** — a fixed-length vector a small model derives from *what code
-> does* — together with a portable format for expressing, sharing, matching, and
+> **semantic signature**: a fixed-length vector a small model derives from *what code
+> does*, together with a portable format for expressing, sharing, matching, and
 > classifying such signatures.
 >
 > Where a YARA rule says *"these bytes appear,"* a semantic signature says *"this code
@@ -28,7 +28,7 @@ evolve, exactly as YARA and CWE did.
 
 Syntactic matching has one structural failure: the attacker controls the syntax. MOVERY
 measured that **91% of real vulnerable code clones differ syntactically** from their
-origin — so a signature keyed on surface form misses them by construction. The same is
+origin, so a signature keyed on surface form misses them by construction. The same is
 true of malware: renaming, control-flow flattening, and string encoding defeat byte/string
 rules while leaving *behavior* intact.
 
@@ -40,25 +40,25 @@ behavior, it survives what defeats syntax.
 
 **Design goals**
 
-1. **Portable** — a signature is a serializable record, exchanged like a `.yar` file.
-2. **Auto-derivable** — computed by reading code, not hand-authored per rule.
-3. **Invariant** — semantically-equivalent code yields matching signatures.
-4. **Composable** — signatures aggregate into *families* (a semantic taxonomy).
-5. **Honest about model-relativity** — a signature is only comparable within the model
+1. **Portable**: a signature is a serializable record, exchanged like a `.yar` file.
+2. **Auto-derivable**: computed by reading code, not hand-authored per rule.
+3. **Invariant**: semantically-equivalent code yields matching signatures.
+4. **Composable**: signatures aggregate into *families* (a semantic taxonomy).
+5. **Honest about model-relativity**: a signature is only comparable within the model
    that produced it; the model is part of the signature's identity (§4).
 
 ---
 
 ## 2. Definitions
 
-- **Semantic signature** `σ(C; M)` — a fixed-length unit vector derived from model `M`'s
+- **Semantic signature** `σ(C; M)`: a fixed-length unit vector derived from model `M`'s
   activations while reading code file `C` (§4).
-- **Family** — a set of signatures that share a behavior, represented by a **centroid**
+- **Family**: a set of signatures that share a behavior, represented by a **centroid**
   signature and a human label. The semantic analogue of a CWE class.
-- **Signature database** — a collection of families under one model `M`.
-- **Match** — assignment of a query signature to a family via a calibrated decision
+- **Signature database**: a collection of families under one model `M`.
+- **Match**: assignment of a query signature to a family via a calibrated decision
   function (§6).
-- **Reference marker / behavior** — the observable a family encodes (e.g. *wallet-hook
+- **Reference marker / behavior**: the observable a family encodes (e.g. *wallet-hook
   crypto-clipper*, *credential exfiltration*, *stack buffer overflow*).
 
 ---
@@ -105,7 +105,7 @@ Given code `C` and model `M`:
 3. Reduce over a **deep layer band** (default: the last 50% of layers, dropping the final
    layer, which is pulled toward the output distribution). Deep layers are used because
    abstract-property decodability sharpens with depth while shallow layers still carry
-   surface form — precisely what the signature must be invariant to.
+   surface form, precisely what the signature must be invariant to.
 4. **L2-normalize** → the signature `σ(C; M)`.
 
 The reference implementation is
@@ -114,7 +114,7 @@ The reference implementation is
 ### 4.3 Obfuscation and the deterministic front-end
 
 String-array / packing obfuscation encodes behavior behind a decoder; the raw signature
-of such code is **below chance** (a measured result — the tells are drowned in decoder
+of such code is **below chance** (a measured result, the tells are drowned in decoder
 noise). Conformant scanners therefore SHOULD run a **deterministic deobfuscation
 front-end** before signing (the reference uses static unpacking; see
 [`supply-chain/`](supply-chain/)). This preserves the division of labor the whole approach
@@ -154,7 +154,7 @@ exchanged as JSON (one per line for streams, or arrays).
 ```json
 {
   "spec_version": "0.1",
-  "model": { /* descriptor — MUST match query's model */ },
+  "model": { /* descriptor, MUST match query's model */ },
   "families": [
     { "family": "crypto_clipper", "cwe": "CWE-749",
       "centroid": [/* dim floats */], "members": ["<sha256>", "..."],
@@ -165,7 +165,7 @@ exchanged as JSON (one per line for streams, or arrays).
 ```
 
 The reference format is [`engine/db/signature_patch_db.json`](engine/db/signature_patch_db.json).
-Note the **`action`** field: a family entry carries not just a label but the response —
+Note the **`action`** field: a family entry carries not just a label but the response: 
 detection and remediation are the same lookup, which is the paper's `(signature, patch)`
 claim.
 
@@ -186,7 +186,7 @@ A match across differing model descriptors is undefined and MUST be refused.
 ### 6.3 Invariance property (what the standard buys you)
 
 The defining guarantee: signatures of code that differs **syntactically but not
-behaviorally** — renamed, refactored, re-packed, obfuscated-then-resolved — assign to the
+behaviorally** (renamed, refactored, re-packed, obfuscated-then-resolved) assign to the
 **same family**. This is the property no syntactic signature has, and it is what makes one
 semantic signature generalize across every modified clone.
 
@@ -205,9 +205,9 @@ of one package MAY be aggregated into a single package-level signature.
 ## 8. The family taxonomy (a semantic successor to CWE)
 
 Families are the shared vocabulary. Unlike CWE, a family is **defined by its centroid
-signature**, not by prose — so it is machine-readable, auto-derivable (cluster signatures),
+signature**, not by prose, so it is machine-readable, auto-derivable (cluster signatures),
 and it **grows itself** as new code is read. A family SHOULD carry a human label and, where
-one exists, a CWE cross-reference — but the signature is authoritative.
+one exists, a CWE cross-reference, but the signature is authoritative.
 
 **Seed families (reference database):**
 
@@ -221,11 +221,11 @@ one exists, a CWE cross-reference — but the signature is authoritative.
 | `credential_exfil` | supply-chain / CI | CWE-522 |
 | `install_exec` | supply-chain / npm | CWE-829 |
 
-The taxonomy is open — the point of the standard is that anyone can contribute a family.
+The taxonomy is open, the point of the standard is that anyone can contribute a family.
 
 ---
 
-## 9. Worked example — catching a real attack through its obfuscation
+## 9. Worked example: catching a real attack through its obfuscation
 
 The September-2025 `chalk/debug` compromise shipped a 76 KB obfuscated crypto-clipper
 inside `debug@4.4.2` (benign `index.js` is 12 lines). Under this spec:
@@ -235,7 +235,7 @@ inside `debug@4.4.2` (benign `index.js` is 12 lines). Under this spec:
    tampering.
 2. **Sign** the recovered code → `σ`.
 3. **Match**: `σ` assigns to the **`crypto_clipper`** family, above the chance floor;
-   the *raw* obfuscated signature is *below* the floor — demonstrating why §4.3's
+   the *raw* obfuscated signature is *below* the floor, demonstrating why §4.3's
    deterministic front-end is mandatory, not optional.
 
 This is one worked example, not the thesis. The thesis is the format: the same procedure
@@ -252,7 +252,7 @@ method is still weak).
 1. Collect ≥1 example of the behavior; run the deterministic front-end if obfuscated.
 2. Compute signatures with a pinned model descriptor (§4).
 3. Submit a family record (§6.1) with centroid, member hashes, label, CWE x-ref, and a
-   short behavior description — plus the reproduction command.
+   short behavior description, plus the reproduction command.
 4. Contributions MUST declare their model descriptor; a maintainer re-projects to the
    canonical model if it differs.
 
@@ -276,14 +276,14 @@ Standards evolve. This is v0.1.
 
 ## 12. Relationship to prior art
 
-- **YARA** — syntactic string/byte rules. Semantic signatures are the behavioral
+- **YARA**: syntactic string/byte rules. Semantic signatures are the behavioral
   counterpart: derived not authored, invariant not brittle.
-- **CWE** — a human-authored weakness taxonomy. The family taxonomy (§8) is its
+- **CWE**: a human-authored weakness taxonomy. The family taxonomy (§8) is its
   machine-derivable, signature-defined successor.
-- **VUDDY / MVP / MOVERY** — vulnerable-clone detection on tokens/slices/CFGs. This spec
+- **VUDDY / MVP / MOVERY**: vulnerable-clone detection on tokens/slices/CFGs. This spec
   keys the same `(vulnerability, patch)` mechanism on the representation that survives the
   modification those systems fight.
-- **EPSS / exploit prediction** — natural-language exploit signals. §4 makes an NL
+- **EPSS / exploit prediction**: natural-language exploit signals. §4 makes an NL
   description and code project into the *same* signature space, so a description can index
   code (developed further outside this public spec).
 
