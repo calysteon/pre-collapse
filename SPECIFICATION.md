@@ -216,9 +216,11 @@ identifier is flat.
 **Status.** A family is either `ref` (a reference centroid signature is computed and
 present in the reference database) or `defined` (the behavior and identifier are specified
 as shared vocabulary, and the centroid is open for contribution, per §10). The v0.1
-reference database ships the seven `ref` families; the rest fix the vocabulary so
-contributions and independent implementations agree on identifiers from day one, exactly
-as CWE fixes weakness names before any single tool covers them all.
+reference database ships nineteen `ref` families: four native memory-safety families in
+[`engine/`](engine/) and fifteen JavaScript behaviors in [`3s/`](3s/), with measured
+leave-one-out separation reported in [`3s/README.md`](3s/README.md). The remaining families
+fix the vocabulary so contributions and independent implementations agree on identifiers
+from day one, exactly as CWE fixes weakness names before any single tool covers them all.
 
 **Memory safety (native code)**
 
@@ -238,13 +240,13 @@ as CWE fixes weakness names before any single tool covers them all.
 
 | family | CWE x-ref | status |
 |---|---|---|
-| `command_injection` | CWE-78 | defined |
-| `code_injection_eval` | CWE-95 | defined |
+| `command_injection` | CWE-78 | ref |
+| `code_injection_eval` | CWE-95 | ref |
 | `sql_injection` | CWE-89 | defined |
-| `path_traversal` | CWE-22 | defined |
-| `unsafe_deserialization` | CWE-502 | defined |
-| `server_side_request_forgery` | CWE-918 | defined |
-| `prototype_pollution` | CWE-1321 | defined |
+| `path_traversal` | CWE-22 | ref |
+| `unsafe_deserialization` | CWE-502 | ref |
+| `server_side_request_forgery` | CWE-918 | ref |
+| `prototype_pollution` | CWE-1321 | ref |
 
 **Supply-chain and malware behaviors**
 
@@ -253,8 +255,8 @@ as CWE fixes weakness names before any single tool covers them all.
 | `crypto_clipper` | CWE-749 | ref |
 | `credential_exfil` | CWE-522 | ref |
 | `install_exec` | CWE-829 | ref |
-| `network_exfil` | CWE-200 | defined |
-| `env_secret_harvest` | CWE-526 | defined |
+| `network_exfil` | CWE-200 | ref |
+| `env_secret_harvest` | CWE-526 | ref |
 | `staged_loader_dropper` | CWE-506 | defined |
 | `self_propagation` | CWE-506 | defined |
 | `reverse_shell` | CWE-506 | defined |
@@ -266,17 +268,24 @@ as CWE fixes weakness names before any single tool covers them all.
 
 | family | CWE x-ref | status |
 |---|---|---|
-| `xss_sink` | CWE-79 | defined |
-| `open_redirect` | CWE-601 | defined |
+| `xss_sink` | CWE-79 | ref |
+| `open_redirect` | CWE-601 | ref |
 | `forced_download_drive_by` | CWE-494 | defined |
 
 **Crypto and secrets**
 
 | family | CWE x-ref | status |
 |---|---|---|
-| `weak_crypto` | CWE-327 | defined |
+| `weak_crypto` | CWE-327 | ref |
 | `insecure_randomness` | CWE-338 | defined |
-| `hardcoded_secret` | CWE-798 | defined |
+| `hardcoded_secret` | CWE-798 | ref |
+
+**Measured granularity.** The signatures for `credential_exfil`, `env_secret_harvest`, and
+`network_exfil` do not separate from one another: all three are one behavior, collect
+sensitive data and send it out, which CWE splits into three classes (CWE-522, CWE-526,
+CWE-200) but the signature merges into one. This is the taxonomy self-organizing to the
+granularity behavior actually has; see [`3s/README.md`](3s/README.md). Families whose
+behavior is genuinely distinct separate cleanly.
 
 The taxonomy is open: the point of the standard is that anyone can contribute a `ref`
 signature for a `defined` family, or propose a new family, per §10.
