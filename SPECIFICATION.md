@@ -1,6 +1,11 @@
-# Semantic Signature Specification
+# 3S — Semantic Signature Specification
 
 **Version 0.1 (draft proposal) · a portable format for obfuscation-invariant code signatures**
+
+**3S** (the three S's of **S**emantic **S**ignature **S**pecification) is to behavior what
+YARA is to bytes: a shared, portable format for *signatures* — but keyed on what code
+**does**, not how it is written. A 3S signature is written `3S:<model>/<family>`, and a 3S
+database of families is the semantic counterpart to a YARA ruleset.
 
 > For thirty years the unit of security knowledge has been a *syntactic* pair — a **YARA**
 > rule (bytes/strings), a **CVE** fingerprint, a **CWE** class written in prose. Syntax

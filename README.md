@@ -1,11 +1,11 @@
 # Pre-Collapse: Vulnerability-Class Signatures in the Activation Space of Language Models
 
-> **This is not only a position — it is a proposed standard.**
-> [**`SPECIFICATION.md`**](SPECIFICATION.md) defines the **semantic signature**: a
-> portable, obfuscation-invariant format for expressing what code *does*, meant as the
+> **This is not only a position — it is a proposed standard: [3S](SPECIFICATION.md).**
+> **3S** (the **S**emantic **S**ignature **S**pecification, [`SPECIFICATION.md`](SPECIFICATION.md))
+> defines a portable, obfuscation-invariant format for expressing what code *does* — the
 > behavioral successor to YARA (syntactic rules) and CWE (hand-authored taxonomy). Where a
-> YARA rule says *"these bytes appear,"* a semantic signature says *"this code behaves like
-> this"* — and keeps saying it after the bytes change.
+> YARA rule says *"these bytes appear,"* a 3S signature says *"this code behaves like this"* —
+> and keeps saying it after the bytes change.
 >
 > It ships with a **working reference implementation** and measured proof, not vaporware:
 > - [`engine/`](engine/) — the `(signature → patch)` loop on real C vulnerabilities: a
