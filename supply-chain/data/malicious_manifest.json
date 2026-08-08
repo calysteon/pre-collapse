@@ -1,0 +1,905 @@
+[
+ {
+  "id": "5e2ccfec44c8",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@antv@l7-map/2.27.10/2026-05-19-@antv_l7-map-v2.27.10.zip",
+  "file": "index.js",
+  "bytes": 499326
+ },
+ {
+  "id": "fffcdb009b68",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@asyncapi@optimizer/1.0.6/2025-11-24-@asyncapi_optimizer-v1.0.6.zip",
+  "file": "setup_bun.js",
+  "bytes": 4960
+ },
+ {
+  "id": "b802046afdba",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@ctrl@ngx-rightclick/4.0.1/2025-09-15-@ctrl_ngx-rightclick-v4.0.1.zip",
+  "file": "bundle.js",
+  "bytes": 3734419
+ },
+ {
+  "id": "f055a7daf018",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@emilgroup@gdv-sdk/2.6.2/2026-03-20-@emilgroup_gdv-sdk-v2.6.2.zip",
+  "file": "index.js",
+  "bytes": 3078
+ },
+ {
+  "id": "d1e600518048",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@hestjs@eslint-config/0.1.2/2025-09-14-@hestjs_eslint-config-v0.1.2.zip",
+  "file": "bundle.js",
+  "bytes": 3735037
+ },
+ {
+  "id": "2c0db500adab",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@mastra@duckdb/1.4.3/2026-06-17-@mastra_duckdb-v1.4.3.zip",
+  "file": "dist/index.js",
+  "bytes": 29091
+ },
+ {
+  "id": "8a5fda642892",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@mastra@vercel/1.0.1/2026-06-17-@mastra_vercel-v1.0.1.zip",
+  "file": "dist/index.js",
+  "bytes": 29291
+ },
+ {
+  "id": "e5e23b067265",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@nativescript-community@ui-pager/14.1.38/2025-09-15-@nativescript-community_ui-pager-v14.1.38.zip",
+  "file": "bundle.js",
+  "bytes": 3734951
+ },
+ {
+  "id": "34090a7370f4",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@operato@board/9.0.45/2025-09-16-@operato_board-v9.0.45.zip",
+  "file": "bundle.js",
+  "bytes": 3734419
+ },
+ {
+  "id": "992acf339671",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@operato@popup/9.0.41/2025-09-16-@operato_popup-v9.0.41.zip",
+  "file": "bundle.js",
+  "bytes": 3734419
+ },
+ {
+  "id": "44ee2977bc71",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@posthog@postgres-plugin/0.0.8/2025-11-24-@posthog_postgres-plugin-v0.0.8.zip",
+  "file": "setup_bun.js",
+  "bytes": 4960
+ },
+ {
+  "id": "2f7dcec1f378",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@quick-start-soft@quick-document-translator/1.4.2511142126/2025-11-24-@quick-start-soft_quick-document-translator-v1.4.2511142126.zip",
+  "file": "setup_bun.js",
+  "bytes": 4960
+ },
+ {
+  "id": "b0116ff92d6e",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@squawk@flightplan/0.5.3/2026-05-11-@squawk_flightplan-v0.5.3.zip",
+  "file": "setup.mjs",
+  "bytes": 5075
+ },
+ {
+  "id": "f0dfc24b2931",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@tanstack@router-core/1.169.5/2026-05-11-@tanstack_router-core-v1.169.5.zip",
+  "file": "dist/cjs/index.cjs",
+  "bytes": 6035
+ },
+ {
+  "id": "d3fa9d993890",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@things-factory@attachment-base/9.0.44/2025-09-16-@things-factory_attachment-base-v9.0.44.zip",
+  "file": "bundle.js",
+  "bytes": 3734419
+ },
+ {
+  "id": "1cffe0810f9f",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@trpc-rate-limiter@hono/0.1.4/2025-11-24-@trpc-rate-limiter_hono-v0.1.4.zip",
+  "file": "setup_bun.js",
+  "bytes": 4960
+ },
+ {
+  "id": "61dfa02b77db",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/@voiceflow@nestjs-rate-limit/1.3.3/2025-11-24-@voiceflow_nestjs-rate-limit-v1.3.3.zip",
+  "file": "setup_bun.js",
+  "bytes": 4960
+ },
+ {
+  "id": "6ffe273096d8",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/autotel-pact/1.0.3/2026-06-04-autotel-pact-v1.0.3.zip",
+  "file": "dist/index.js",
+  "bytes": 31003
+ },
+ {
+  "id": "0d4ec3693ecf",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/composite-reducer/1.0.5/2025-11-24-composite-reducer-v1.0.5.zip",
+  "file": "setup_bun.js",
+  "bytes": 4960
+ },
+ {
+  "id": "17c5e1a53606",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/evm-checkcode-cli/1.0.13/2025-11-24-evm-checkcode-cli-v1.0.13.zip",
+  "file": "setup_bun.js",
+  "bytes": 4960
+ },
+ {
+  "id": "1a86fc50df32",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/manual-billing-system-miniapp-api/1.3.1/2025-11-24-manual-billing-system-miniapp-api-v1.3.1.zip",
+  "file": "setup_bun.js",
+  "bytes": 4960
+ },
+ {
+  "id": "bc3d040f29cb",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/pgserve/1.1.12/2026-04-21-pgserve-v1.1.12.zip",
+  "file": "scripts/check-env.js",
+  "bytes": 41332
+ },
+ {
+  "id": "69e53ed1ef31",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/supports-hyperlinks/4.1.1/2025-09-08-supports-hyperlinks-v4.1.1.zip",
+  "file": "index.js",
+  "bytes": 79327
+ },
+ {
+  "id": "b95ab986ee05",
+  "label": "malicious",
+  "sample": "samples/npm/compromised_lib/zapier-platform-schema/18.0.3/2025-11-24-zapier-platform-schema-v18.0.3.zip",
+  "file": "setup_bun.js",
+  "bytes": 4960
+ },
+ {
+  "id": "d8d8fc20ca9e",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@0xobelisk@sui-cli/1.2.0-pre.18/2025-05-17-@0xobelisk_sui-cli-v1.2.0-pre.18.zip",
+  "file": "dist/dubhe.js",
+  "bytes": 41599
+ },
+ {
+  "id": "2c16674da67d",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@0xobelisk@sui-cli/1.2.0-pre.95/2026-02-01-@0xobelisk_sui-cli-v1.2.0-pre.95.zip",
+  "file": "dist/dubhe.js",
+  "bytes": 75479
+ },
+ {
+  "id": "23337a3a4d07",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@activation_code@error/99.0.2/2026-04-27-@activation_code_error-v99.0.2.zip",
+  "file": "preinstall.js",
+  "bytes": 876
+ },
+ {
+  "id": "1e803cef0521",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@asarioglo@ect-472839/1.23.467/2025-10-29-@asarioglo_ect-472839-v1.23.467.zip",
+  "file": "reveal_flag.js",
+  "bytes": 4548
+ },
+ {
+  "id": "c2cfca9444b1",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@bonk-sdk@ipfs/1.0.12/2025-08-25-@bonk-sdk_ipfs-v1.0.12.zip",
+  "file": "index.js",
+  "bytes": 8529
+ },
+ {
+  "id": "ceef6f3c27fa",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@callcenter-frontend@ui/99.0.2025091-3.1/2025-09-13-@callcenter-frontend_ui-v99.0.2025091-3.1.zip",
+  "file": "install.js",
+  "bytes": 926
+ },
+ {
+  "id": "ce7b6a271b02",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@clearpool@streaming/1.0.1/2026-04-26-@clearpool_streaming-v1.0.1.zip",
+  "file": "index.js",
+  "bytes": 21
+ },
+ {
+  "id": "404ffe96c5ee",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@cloudplatform-single-spa@support/99.99.99/2026-05-27-@cloudplatform-single-spa_support-v99.99.99.zip",
+  "file": "scripts/postinstall.js",
+  "bytes": 4383
+ },
+ {
+  "id": "c1c27a4ce53f",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@crepo@crepo-url-query-mapper/11.11.12/2026-01-05-@crepo_crepo-url-query-mapper-v11.11.12.zip",
+  "file": "index.js",
+  "bytes": 1092
+ },
+ {
+  "id": "2f917ef2068a",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@depro-tech@cortana-md/1.2.23/2026-03-03-@depro-tech_cortana-md-v1.2.23.zip",
+  "file": "dist/hosted.cjs",
+  "bytes": 710848
+ },
+ {
+  "id": "40afbcb21f68",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@dp-bpsc-tiktok@ranking/1.0.0/2024-09-11-@dp-bpsc-tiktok_ranking-v1.0.0.zip",
+  "file": "index.js",
+  "bytes": 1719
+ },
+ {
+  "id": "0e24bc1478fb",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@fastifyv4@fastifyv4/5.0.0/2025-09-02-@fastifyv4_fastifyv4-v5.0.0.zip",
+  "file": "index.js",
+  "bytes": 558
+ },
+ {
+  "id": "6c958e73618b",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@glofe@bootstrap/9999.0.3/2025-06-15-@glofe_bootstrap-v9999.0.3.zip",
+  "file": "index.js",
+  "bytes": 1044
+ },
+ {
+  "id": "953512ae2fd8",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@hash-validator@v2/1.22.5/2025-09-19-@hash-validator_v2-v1.22.5.zip",
+  "file": "dist/index.cjs",
+  "bytes": 1663
+ },
+ {
+  "id": "8d2b433b681d",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@huobi-lib@vulcan-js-sdk/10.11.0/2025-09-03-@huobi-lib_vulcan-js-sdk-v10.11.0.zip",
+  "file": "index.js",
+  "bytes": 1325
+ },
+ {
+  "id": "7ac7dac77313",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@ikarem@telemetry/100.1.11/2025-12-21-@ikarem_telemetry-v100.1.11.zip",
+  "file": "index.js",
+  "bytes": 630
+ },
+ {
+  "id": "4837b8f86c22",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@isfront@locale/1.0.0/2025-07-13-@isfront_locale-v1.0.0.zip",
+  "file": "index.js",
+  "bytes": 32
+ },
+ {
+  "id": "74a73d7d4aac",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@kiwiiw@ez-lib/1.0.1/2025-11-20-@kiwiiw_ez-lib-v1.0.1.zip",
+  "file": "scripts/postinstall.js",
+  "bytes": 1131
+ },
+ {
+  "id": "eae43b3beb45",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@laposte-okapi@okapi-developpeur-web/3.52.1/2025-09-12-@laposte-okapi_okapi-developpeur-web-v3.52.1.zip",
+  "file": "metrics/metrics.js",
+  "bytes": 2116
+ },
+ {
+  "id": "f0b7e38bf15f",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@metadata-ipfs@validate-hash/1.11.16/2025-08-12-@metadata-ipfs_validate-hash-v1.11.16.zip",
+  "file": "index.js",
+  "bytes": 6848
+ },
+ {
+  "id": "f1312995e678",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@navancorp@ta-fe-components/1.0.9/2025-08-21-@navancorp_ta-fe-components-v1.0.9.zip",
+  "file": "postinstall.js",
+  "bytes": 3113
+ },
+ {
+  "id": "94257ba83815",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@one-site@europcar/2.64.99999999/2025-02-13-@one-site_europcar-v2.64.99999999.zip",
+  "file": "index.js",
+  "bytes": 323
+ },
+ {
+  "id": "8edd676f3f1f",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@pentestleg@core/10.1.2/2025-05-31-@pentestleg_core-v10.1.2.zip",
+  "file": "dist/index.js",
+  "bytes": 344
+ },
+ {
+  "id": "24891d88725f",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@pluxee-design-system@core/17.9897.9889/2025-12-08-@pluxee-design-system_core-v17.9897.9889.zip",
+  "file": "pre.js",
+  "bytes": 963
+ },
+ {
+  "id": "4f0cfa16bddf",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@pumpfun-sdk@metadata/1.0.5/2025-08-28-@pumpfun-sdk_metadata-v1.0.5.zip",
+  "file": "index.js",
+  "bytes": 8597
+ },
+ {
+  "id": "35fed93f2ede",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@s21games@game-engine/1.15.14/2025-09-13-@s21games_game-engine-v1.15.14.zip",
+  "file": "index.js",
+  "bytes": 41
+ },
+ {
+  "id": "5c0ec945996e",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@sber-business-id@srp-client/2.0.0/2025-08-11-@sber-business-id_srp-client-v2.0.0.zip",
+  "file": "index.js",
+  "bytes": 1092
+ },
+ {
+  "id": "bd907d6ac377",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@sev-ui-verse@event-tracking/339.52.1/2025-09-13-@sev-ui-verse_event-tracking-v339.52.1.zip",
+  "file": "metrics/metrics.js",
+  "bytes": 2116
+ },
+ {
+  "id": "50e5a374bb4b",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@smt-front@poster/158.1.5/2024-12-04-@smt-front_poster-v158.1.5.zip",
+  "file": "postinstall.js",
+  "bytes": 1304
+ },
+ {
+  "id": "4f7e154653d2",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@sporta-technology@d11-web-components.icon/0.0.9999/2025-03-27-@sporta-technology_d11-web-components.icon-v0.0.9999.zip",
+  "file": "index.js",
+  "bytes": 28
+ },
+ {
+  "id": "27393671c641",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@subdashboard@shared/15.0.2/2025-07-06-@subdashboard_shared-v15.0.2.zip",
+  "file": "index.js",
+  "bytes": 1009
+ },
+ {
+  "id": "4495a8842c1f",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@telekom-wfa@auth-core/99.9.11/2026-04-04-@telekom-wfa_auth-core-v99.9.11.zip",
+  "file": "index.js",
+  "bytes": 952
+ },
+ {
+  "id": "fbd13ab80865",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@toptal@davinci-graphql-codegen-extensions/1.1.5/2025-07-20-@toptal_davinci-graphql-codegen-extensions-v1.1.5.zip",
+  "file": "src/index.js",
+  "bytes": 107
+ },
+ {
+  "id": "2315e43cc345",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@toptal@picasso-grid/5.0.18/2026-03-10-@toptal_picasso-grid-v5.0.18.zip",
+  "file": "dist-package/src/index.js",
+  "bytes": 117
+ },
+ {
+  "id": "a1eb4beedae7",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@toptal@picasso-slider/5.0.0/2026-03-31-@toptal_picasso-slider-v5.0.0.zip",
+  "file": "dist-package/src/index.js",
+  "bytes": 59
+ },
+ {
+  "id": "1bae36a40113",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@tushar-br@desktop/1.0.280/2026-03-24-@tushar-br_desktop-v1.0.280.zip",
+  "file": "install.js",
+  "bytes": 7937
+ },
+ {
+  "id": "9e806149c919",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@tushar-br@editing-pack/1.0.215/2026-03-24-@tushar-br_editing-pack-v1.0.215.zip",
+  "file": "install.js",
+  "bytes": 7937
+ },
+ {
+  "id": "a3156fd4e12f",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@typescript_eslinter@eslint/2.1.2/2024-12-03-@typescript_eslinter_eslint-v2.1.2.zip",
+  "file": "index.js",
+  "bytes": 10409
+ },
+ {
+  "id": "38939119d959",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@veertly@web-app/99.9.9/2026-04-05-@veertly_web-app-v99.9.9.zip",
+  "file": "index.js",
+  "bytes": 991
+ },
+ {
+  "id": "d16c3ce428e5",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@walmart-dataventures@integrated-components/1.0.0/2025-04-30-@walmart-dataventures_integrated-components-v1.0.0.zip",
+  "file": "index.js",
+  "bytes": 95
+ },
+ {
+  "id": "c1b540b6a786",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@wp-feature-api@client-features/9.9.99/2025-08-19-@wp-feature-api_client-features-v9.9.99.zip",
+  "file": "index.js",
+  "bytes": 1067
+ },
+ {
+  "id": "e4dc237d186e",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/@zentrafinance@types/1.0.2/2026-05-16-@zentrafinance_types-v1.0.2.zip",
+  "file": "scripts/verify-config.js",
+  "bytes": 2070
+ },
+ {
+  "id": "4b5563210230",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/ac-localnav/4.0.0/2025-02-26-ac-localnav-v4.0.0.zip",
+  "file": "index.js",
+  "bytes": 1094
+ },
+ {
+  "id": "f8b15e955513",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/adjacent_warbler_z3n/1.2.1/2024-06-08-adjacent_warbler_z3n-v1.2.1.zip",
+  "file": "index.js",
+  "bytes": 33
+ },
+ {
+  "id": "3dd1faeb3cd6",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/advanced-svg-fetcher/1.1.1/2025-12-11-advanced-svg-fetcher-v1.1.1.zip",
+  "file": "index.js",
+  "bytes": 4917
+ },
+ {
+  "id": "79f2f7ff1998",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/agoda.cronos.activities.client-side/1.0.5/2025-06-26-agoda.cronos.activities.client-side-v1.0.5.zip",
+  "file": "postinstall.js",
+  "bytes": 485
+ },
+ {
+  "id": "2dc15d1b110c",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/ai-assiatant-ding/1.0.0/2026-01-06-ai-assiatant-ding-v1.0.0.zip",
+  "file": "index.js",
+  "bytes": 6396
+ },
+ {
+  "id": "be4dbf1d1184",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/airbnb-base-hf/1.0.0/2025-08-18-airbnb-base-hf-v1.0.0.zip",
+  "file": "index.js",
+  "bytes": 50
+ },
+ {
+  "id": "454a43d2829c",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/airbnb-prop/10.0.1/2025-07-24-airbnb-prop-v10.0.1.zip",
+  "file": "index.js",
+  "bytes": 615
+ },
+ {
+  "id": "6a9bb9960ce0",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/alchemy-asset-transfers-benchmark/2.0.0/2024-12-22-alchemy-asset-transfers-benchmark-v2.0.0.zip",
+  "file": "index.js",
+  "bytes": 2021
+ },
+ {
+  "id": "5e76f0330344",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/amplitude-ma-ts/1.0.22/2026-04-24-amplitude-ma-ts-v1.0.22.zip",
+  "file": "Folder/bin/S.js",
+  "bytes": 1141
+ },
+ {
+  "id": "0ffcfa6e44b3",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/angular-trackjs/0.2.99/2025-12-02-angular-trackjs-v0.2.99.zip",
+  "file": "postinstall.js",
+  "bytes": 559
+ },
+ {
+  "id": "549ca780c83b",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/api-umbrella-admin-ui/99.99.99/2025-12-28-api-umbrella-admin-ui-v99.99.99.zip",
+  "file": "api-umbrella-admin-ui.js",
+  "bytes": 3705
+ },
+ {
+  "id": "fda65138d7e0",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/apple-mycelium-fix/2.6.1778343025/2026-05-09-apple-mycelium-fix-v2.6.1778343025.zip",
+  "file": "index.js",
+  "bytes": 1022
+ },
+ {
+  "id": "dc2d6e10370b",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/arif-kue96-riris/1.3.4/2024-05-17-arif-kue96-riris-v1.3.4.zip",
+  "file": "auto.js",
+  "bytes": 7368
+ },
+ {
+  "id": "cd502ba0d3a3",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/ass-frontend/1.0.0/2025-07-05-ass-frontend-v1.0.0.zip",
+  "file": "index.js",
+  "bytes": 1087
+ },
+ {
+  "id": "0d0ff86b07a7",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/atlas-query-editor/99.99.99/2024-12-15-atlas-query-editor-v99.99.99.zip",
+  "file": "index.js",
+  "bytes": 269
+ },
+ {
+  "id": "8f490d2d57f6",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/atlasora-client/1.0.0/2026-06-20-atlasora-client-v1.0.0.zip",
+  "file": "install.js",
+  "bytes": 3681
+ },
+ {
+  "id": "55c54d4d7be6",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/axcors/12.7.4/2025-09-10-axcors-v12.7.4.zip",
+  "file": "index.js",
+  "bytes": 2483
+ },
+ {
+  "id": "448cecb57290",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/azps/2.4.0/2025-03-01-azps-v2.4.0.zip",
+  "file": "index.js",
+  "bytes": 1131
+ },
+ {
+  "id": "f2398ac9dc81",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/babelcode_js/99.12.9/2026-04-20-babelcode_js-v99.12.9.zip",
+  "file": "postinstall.js",
+  "bytes": 2937
+ },
+ {
+  "id": "c054cc423461",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/baileys-dtz/5.0.1/2025-12-15-baileys-dtz-v5.0.1.zip",
+  "file": "engine-requirements.js",
+  "bytes": 305
+ },
+ {
+  "id": "d5844bb77e6b",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/base58x64/2.0.1/2025-09-12-base58x64-v2.0.1.zip",
+  "file": "src/cjs/index.cjs",
+  "bytes": 5691
+ },
+ {
+  "id": "de509b0b6328",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/bayu-naget79-riris/1.4.1/2024-05-21-bayu-naget79-riris-v1.4.1.zip",
+  "file": "auto.js",
+  "bytes": 7368
+ },
+ {
+  "id": "711715b5c78c",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/bcryptutils/1.0.8/2024-09-15-bcryptutils-v1.0.8.zip",
+  "file": "index.cjs",
+  "bytes": 3674
+ },
+ {
+  "id": "7d68151dac73",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/bgrc/9000.0.1/2025-09-23-bgrc-v9000.0.1.zip",
+  "file": "test.js",
+  "bytes": 1020
+ },
+ {
+  "id": "b5159fb79cb1",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/bingo-logger/7.12.0/2025-06-27-bingo-logger-v7.12.0.zip",
+  "file": "bingo-logger.js",
+  "bytes": 5479
+ },
+ {
+  "id": "8f276fd9f519",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/blocks-nextjs/9999.9999.10028/2025-05-26-blocks-nextjs-v9999.9999.10028.zip",
+  "file": "index.js",
+  "bytes": 2108
+ },
+ {
+  "id": "08de235c5f89",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/blocks-nextjs/9999.9999.10108/2025-05-27-blocks-nextjs-v9999.9999.10108.zip",
+  "file": "index.js",
+  "bytes": 1636
+ },
+ {
+  "id": "a155d7d8df3e",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/blocks-nextjs/9999.9999.10179/2025-05-27-blocks-nextjs-v9999.9999.10179.zip",
+  "file": "index.js",
+  "bytes": 1555
+ },
+ {
+  "id": "d0ed3f2720b2",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/blocks-nextjs/9999.9999.10251/2025-05-27-blocks-nextjs-v9999.9999.10251.zip",
+  "file": "index.js",
+  "bytes": 1555
+ },
+ {
+  "id": "e426da647590",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/blocks-nextjs/9999.9999.10344/2025-05-27-blocks-nextjs-v9999.9999.10344.zip",
+  "file": "index.js",
+  "bytes": 1555
+ },
+ {
+  "id": "5779716c36d8",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/blocks-nextjs/9999.9999.10410/2025-05-28-blocks-nextjs-v9999.9999.10410.zip",
+  "file": "index.js",
+  "bytes": 1555
+ },
+ {
+  "id": "11a2333ebf9a",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/blz-internal-pkg_update/7.7.16/2024-12-20-blz-internal-pkg_update-v7.7.16.zip",
+  "file": "index.js",
+  "bytes": 108
+ },
+ {
+  "id": "72c796f5ceb3",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/breadcrumb-service/999.0.0/2026-02-06-breadcrumb-service-v999.0.0.zip",
+  "file": "index.js",
+  "bytes": 3128
+ },
+ {
+  "id": "6311d9974f70",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/bubblemap-bypass-sdk/1.0.1/2026-02-12-bubblemap-bypass-sdk-v1.0.1.zip",
+  "file": "lib/dist/index.js",
+  "bytes": 473
+ },
+ {
+  "id": "d28a9aa4a7d8",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/build-scripts-utils/1.1.0/2026-05-23-build-scripts-utils-v1.1.0.zip",
+  "file": "lib/setup.js",
+  "bytes": 2818
+ },
+ {
+  "id": "7f40b5f7f7a5",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/c11dff444/1.0.2/2026-01-31-c11dff444-v1.0.2.zip",
+  "file": "preinstall.js",
+  "bytes": 820
+ },
+ {
+  "id": "db0adeee35fd",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/calypso-eslint-overrides/1003.0.0/2025-01-18-calypso-eslint-overrides-v1003.0.0.zip",
+  "file": "scripts/preinstall.js",
+  "bytes": 1372
+ },
+ {
+  "id": "46372e6852e8",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/carbonite-internal/99.9.0/2026-05-06-carbonite-internal-v99.9.0.zip",
+  "file": "index.js",
+  "bytes": 2332
+ },
+ {
+  "id": "0832e0e52d28",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/cchubber/0.3.9/2026-04-03-cchubber-v0.3.9.zip",
+  "file": "src/cli/index.js",
+  "bytes": 7866
+ },
+ {
+  "id": "282386ff4f99",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/chai-as-approved/5.0.1/2026-01-28-chai-as-approved-v5.0.1.zip",
+  "file": "index.js",
+  "bytes": 1486
+ },
+ {
+  "id": "4c21e02deff0",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/chai-as-test/1.2.9/2026-05-04-chai-as-test-v1.2.9.zip",
+  "file": "index.js",
+  "bytes": 1198
+ },
+ {
+  "id": "ad1da740f64a",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/chai-net-test/1.1.2/2026-06-11-chai-net-test-v1.1.2.zip",
+  "file": "src/index.js",
+  "bytes": 8848
+ },
+ {
+  "id": "bc3f1ec897fd",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/chain-neurograde/2.4.7/2026-03-02-chain-neurograde-v2.4.7.zip",
+  "file": "index.js",
+  "bytes": 1198
+ },
+ {
+  "id": "9242b4c4a792",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/cindy-gulai14-riris/1.4.2/2024-05-17-cindy-gulai14-riris-v1.4.2.zip",
+  "file": "auto.js",
+  "bytes": 7368
+ },
+ {
+  "id": "70301a9eca1a",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/citra-telur46-sluey/1.2.1/2024-05-12-citra-telur46-sluey-v1.2.1.zip",
+  "file": "auto.js",
+  "bytes": 7368
+ },
+ {
+  "id": "64408037e6e0",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/client-s3/1.0.2/2026-01-09-client-s3-v1.0.2.zip",
+  "file": "scripts/setup.js",
+  "bytes": 34450
+ },
+ {
+  "id": "e53519af9c7a",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/cmp-spid-login/1.0.11/2025-06-12-cmp-spid-login-v1.0.11.zip",
+  "file": "index.js",
+  "bytes": 43
+ },
+ {
+  "id": "bf46dff808c4",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/codeium-ai/0.0.0-dev-202603281254/2026-03-28-codeium-ai-v0.0.0-dev-202603281254.zip",
+  "file": "postinstall.mjs",
+  "bytes": 3219
+ },
+ {
+  "id": "3aaec661313c",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/colortoolsv2/1.0.1/2025-07-07-colortoolsv2-v1.0.1.zip",
+  "file": "index.js",
+  "bytes": 1712
+ },
+ {
+  "id": "89900ffb1929",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/com.siccity.gltfutility/9.9.9/2024-12-27-com.siccity.gltfutility-v9.9.9.zip",
+  "file": "index.js",
+  "bytes": 269
+ },
+ {
+  "id": "8d26107210db",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/comcastapp/1.4.6/2025-07-03-comcastapp-v1.4.6.zip",
+  "file": "index.js",
+  "bytes": 64
+ },
+ {
+  "id": "147b7f91e2eb",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/compliance-check-runner/1.0.0/2026-05-22-compliance-check-runner-v1.0.0.zip",
+  "file": "index.js",
+  "bytes": 308
+ },
+ {
+  "id": "91f5088c7356",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/consgraphqlnodeserv/1.0.3/2025-07-05-consgraphqlnodeserv-v1.0.3.zip",
+  "file": "index.js",
+  "bytes": 3115
+ },
+ {
+  "id": "5aff400e174e",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/cookie-parser-legacy/1.5.2/2026-06-04-cookie-parser-legacy-v1.5.2.zip",
+  "file": "index.js",
+  "bytes": 4523
+ },
+ {
+  "id": "0637cfc97a61",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/cordova-plugin-globalization.moment/1.0.0/2025-10-11-cordova-plugin-globalization.moment-v1.0.0.zip",
+  "file": "index.js",
+  "bytes": 55
+ },
+ {
+  "id": "cccf289e00b6",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/cors-init/1.0.0/2025-06-12-cors-init-v1.0.0.zip",
+  "file": "dist/index.js",
+  "bytes": 9901
+ },
+ {
+  "id": "59a2c28eceed",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/create-erc8004-agent/1.0.6/2025-12-11-create-erc8004-agent-v1.0.6.zip",
+  "file": "dist/index.js",
+  "bytes": 3853
+ },
+ {
+  "id": "6481be84750e",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/crypto-credential-scanner/3.0.3/2026-05-21-crypto-credential-scanner-v3.0.3.zip",
+  "file": "index.js",
+  "bytes": 3959
+ },
+ {
+  "id": "80b7a330d183",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/crypto-locale/1.0.0/2026-02-17-crypto-locale-v1.0.0.zip",
+  "file": "index.js",
+  "bytes": 1643
+ },
+ {
+  "id": "6803c9b29ff9",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/ctf2libxmljs2/0.30.2/2025-10-30-ctf2libxmljs2-v0.30.2.zip",
+  "file": "exfiltrate.js",
+  "bytes": 3848
+ },
+ {
+  "id": "d2207a162d55",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/cute_pigeon_z3n/1.2.2/2024-07-08-cute_pigeon_z3n-v1.2.2.zip",
+  "file": "publishScript.js",
+  "bytes": 7140
+ },
+ {
+  "id": "5cf051bad3ef",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/d360-frontend/0.1.4/2025-08-12-d360-frontend-v0.1.4.zip",
+  "file": "src/index.js",
+  "bytes": 2225
+ },
+ {
+  "id": "c775cd825612",
+  "label": "malicious",
+  "sample": "samples/npm/malicious_intent/dcf-commons/1.0.6/2026-01-26-dcf-commons-v1.0.6.zip",
+  "file": "commons.js",
+  "bytes": 302062
+ }
+]

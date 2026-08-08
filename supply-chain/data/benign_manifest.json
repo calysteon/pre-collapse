@@ -1,0 +1,812 @@
+[
+ {
+  "id": "1e508560cdca",
+  "label": "benign",
+  "package": "lodash",
+  "bytes": 545941
+ },
+ {
+  "id": "a304d51d9be3",
+  "label": "benign",
+  "package": "express",
+  "bytes": 224
+ },
+ {
+  "id": "9d27c4aa337a",
+  "label": "benign",
+  "package": "react",
+  "bytes": 186
+ },
+ {
+  "id": "516aa0312d37",
+  "label": "benign",
+  "package": "react-dom",
+  "bytes": 1359
+ },
+ {
+  "id": "82e398cf30e7",
+  "label": "benign",
+  "package": "vue",
+  "bytes": 591450
+ },
+ {
+  "id": "c6af766230d3",
+  "label": "benign",
+  "package": "axios",
+  "bytes": 65099
+ },
+ {
+  "id": "de2ce8b25667",
+  "label": "benign",
+  "package": "moment",
+  "bytes": 176435
+ },
+ {
+  "id": "ff0b46b38fbe",
+  "label": "benign",
+  "package": "chalk",
+  "bytes": 8183
+ },
+ {
+  "id": "6eaf2610bae5",
+  "label": "benign",
+  "package": "debug",
+  "bytes": 314
+ },
+ {
+  "id": "d1e92823eacc",
+  "label": "benign",
+  "package": "commander",
+  "bytes": 711
+ },
+ {
+  "id": "e1a153dd78d4",
+  "label": "benign",
+  "package": "async",
+  "bytes": 224884
+ },
+ {
+  "id": "d90ca6d41cbb",
+  "label": "benign",
+  "package": "request",
+  "bytes": 3994
+ },
+ {
+  "id": "086ec4d74134",
+  "label": "benign",
+  "package": "bluebird",
+  "bytes": 291
+ },
+ {
+  "id": "3df7d551bf11",
+  "label": "benign",
+  "package": "underscore",
+  "bytes": 68904
+ },
+ {
+  "id": "f2908bda25e5",
+  "label": "benign",
+  "package": "jquery",
+  "bytes": 255967
+ },
+ {
+  "id": "c468caed0216",
+  "label": "benign",
+  "package": "classnames",
+  "bytes": 1530
+ },
+ {
+  "id": "0bb6e2963dd7",
+  "label": "benign",
+  "package": "prop-types",
+  "bytes": 710
+ },
+ {
+  "id": "88c4e512032b",
+  "label": "benign",
+  "package": "redux",
+  "bytes": 18093
+ },
+ {
+  "id": "a07fc8645479",
+  "label": "benign",
+  "package": "rxjs",
+  "bytes": 10122
+ },
+ {
+  "id": "70d458122b87",
+  "label": "benign",
+  "package": "webpack",
+  "bytes": 23645
+ },
+ {
+  "id": "e11f0cda0670",
+  "label": "benign",
+  "package": "babel-core",
+  "bytes": 47
+ },
+ {
+  "id": "97505adf99e4",
+  "label": "benign",
+  "package": "eslint",
+  "bytes": 1065
+ },
+ {
+  "id": "e5eefe3b84ba",
+  "label": "benign",
+  "package": "prettier",
+  "bytes": 82490
+ },
+ {
+  "id": "8a1468306f52",
+  "label": "benign",
+  "package": "typescript",
+  "bytes": 113
+ },
+ {
+  "id": "ac35ab06d01e",
+  "label": "benign",
+  "package": "typescript-eslint",
+  "bytes": 9534
+ },
+ {
+  "id": "a134c95ce0e5",
+  "label": "benign",
+  "package": "jest",
+  "bytes": 2022
+ },
+ {
+  "id": "05a47580c30a",
+  "label": "benign",
+  "package": "mocha",
+  "bytes": 56
+ },
+ {
+  "id": "b07f70550491",
+  "label": "benign",
+  "package": "chai",
+  "bytes": 137054
+ },
+ {
+  "id": "71c2a4b8d90e",
+  "label": "benign",
+  "package": "sinon",
+  "bytes": 128
+ },
+ {
+  "id": "d3c2249fa389",
+  "label": "benign",
+  "package": "uuid",
+  "bytes": 636
+ },
+ {
+  "id": "613aea8b2175",
+  "label": "benign",
+  "package": "dotenv",
+  "bytes": 11905
+ },
+ {
+  "id": "1d85082e93d5",
+  "label": "benign",
+  "package": "cors",
+  "bytes": 6587
+ },
+ {
+  "id": "5f610e5b5007",
+  "label": "benign",
+  "package": "body-parser",
+  "bytes": 976
+ },
+ {
+  "id": "c3a4d70cb01f",
+  "label": "benign",
+  "package": "mongoose",
+  "bytes": 2597
+ },
+ {
+  "id": "c1da91321c03",
+  "label": "benign",
+  "package": "sequelize",
+  "bytes": 89
+ },
+ {
+  "id": "84e792f61b0a",
+  "label": "benign",
+  "package": "pg",
+  "bytes": 1810
+ },
+ {
+  "id": "ba7e5bd726e1",
+  "label": "benign",
+  "package": "mysql2",
+  "bytes": 2005
+ },
+ {
+  "id": "2fe4d8b02675",
+  "label": "benign",
+  "package": "redis",
+  "bytes": 2992
+ },
+ {
+  "id": "e6bd31185cc5",
+  "label": "benign",
+  "package": "ioredis",
+  "bytes": 2570
+ },
+ {
+  "id": "80ef2b526aef",
+  "label": "benign",
+  "package": "node-fetch",
+  "bytes": 12908
+ },
+ {
+  "id": "f05c29ecc1cd",
+  "label": "benign",
+  "package": "cross-env",
+  "bytes": 3584
+ },
+ {
+  "id": "c4d23bd5362a",
+  "label": "benign",
+  "package": "rimraf",
+  "bytes": 4106
+ },
+ {
+  "id": "b21c9475e4d0",
+  "label": "benign",
+  "package": "glob",
+  "bytes": 88495
+ },
+ {
+  "id": "2f002710a0af",
+  "label": "benign",
+  "package": "minimatch",
+  "bytes": 45140
+ },
+ {
+  "id": "c34b6e4f43c6",
+  "label": "benign",
+  "package": "semver",
+  "bytes": 2691
+ },
+ {
+  "id": "86051b58e472",
+  "label": "benign",
+  "package": "yargs",
+  "bytes": 268
+ },
+ {
+  "id": "9c6a496fe678",
+  "label": "benign",
+  "package": "inquirer",
+  "bytes": 40
+ },
+ {
+  "id": "0dc62aa750aa",
+  "label": "benign",
+  "package": "ora",
+  "bytes": 17889
+ },
+ {
+  "id": "feb47aa3f915",
+  "label": "benign",
+  "package": "cli-progress",
+  "bytes": 666
+ },
+ {
+  "id": "7a1a00f0f311",
+  "label": "benign",
+  "package": "colors",
+  "bytes": 369
+ },
+ {
+  "id": "d8fbf267c2d6",
+  "label": "benign",
+  "package": "ansi-styles",
+  "bytes": 6962
+ },
+ {
+  "id": "3d711c395d71",
+  "label": "benign",
+  "package": "strip-ansi",
+  "bytes": 626
+ },
+ {
+  "id": "ad3f5e1f5863",
+  "label": "benign",
+  "package": "wrap-ansi",
+  "bytes": 12870
+ },
+ {
+  "id": "138ff91d1c57",
+  "label": "benign",
+  "package": "string-width",
+  "bytes": 6182
+ },
+ {
+  "id": "01ae885e766c",
+  "label": "benign",
+  "package": "figures",
+  "bytes": 6875
+ },
+ {
+  "id": "313b23ed262b",
+  "label": "benign",
+  "package": "date-fns",
+  "bytes": 85036
+ },
+ {
+  "id": "05f234bd587b",
+  "label": "benign",
+  "package": "dayjs",
+  "bytes": 7161
+ },
+ {
+  "id": "76802dea8f44",
+  "label": "benign",
+  "package": "luxon",
+  "bytes": 81598
+ },
+ {
+  "id": "14b3f6dbdb29",
+  "label": "benign",
+  "package": "numeral",
+  "bytes": 33602
+ },
+ {
+  "id": "a9f6d6b0b0c2",
+  "label": "benign",
+  "package": "validator",
+  "bytes": 12007
+ },
+ {
+  "id": "3e1e446ca094",
+  "label": "benign",
+  "package": "joi",
+  "bytes": 6947
+ },
+ {
+  "id": "e4220a14c9f9",
+  "label": "benign",
+  "package": "yup",
+  "bytes": 80603
+ },
+ {
+  "id": "6a11a059a389",
+  "label": "benign",
+  "package": "zod",
+  "bytes": 1486
+ },
+ {
+  "id": "0d95299b0c73",
+  "label": "benign",
+  "package": "ajv",
+  "bytes": 2841
+ },
+ {
+  "id": "03a0be3b0b44",
+  "label": "benign",
+  "package": "qs",
+  "bytes": 211
+ },
+ {
+  "id": "4d3d0713c043",
+  "label": "benign",
+  "package": "query-string",
+  "bytes": 71
+ },
+ {
+  "id": "64638c573d5b",
+  "label": "benign",
+  "package": "form-data",
+  "bytes": 15084
+ },
+ {
+  "id": "167a127e14ba",
+  "label": "benign",
+  "package": "formidable",
+  "bytes": 45595
+ },
+ {
+  "id": "da7022470fd2",
+  "label": "benign",
+  "package": "multer",
+  "bytes": 2745
+ },
+ {
+  "id": "6a583ce9fddd",
+  "label": "benign",
+  "package": "nodemailer",
+  "bytes": 5829
+ },
+ {
+  "id": "248d9d560740",
+  "label": "benign",
+  "package": "socket.io",
+  "bytes": 28387
+ },
+ {
+  "id": "634238fb6cb9",
+  "label": "benign",
+  "package": "ws",
+  "bytes": 796
+ },
+ {
+  "id": "14f404e934b0",
+  "label": "benign",
+  "package": "jsonwebtoken",
+  "bytes": 276
+ },
+ {
+  "id": "2b8ae74bbb35",
+  "label": "benign",
+  "package": "bcrypt",
+  "bytes": 7150
+ },
+ {
+  "id": "e716188a4814",
+  "label": "benign",
+  "package": "crypto-js",
+  "bytes": 1668
+ },
+ {
+  "id": "36d774136136",
+  "label": "benign",
+  "package": "node-forge",
+  "bytes": 640
+ },
+ {
+  "id": "42468873a821",
+  "label": "benign",
+  "package": "helmet",
+  "bytes": 21723
+ },
+ {
+  "id": "e0a5eabbd6b5",
+  "label": "benign",
+  "package": "morgan",
+  "bytes": 11614
+ },
+ {
+  "id": "ad1459921465",
+  "label": "benign",
+  "package": "winston",
+  "bytes": 4595
+ },
+ {
+  "id": "732c1092bfbb",
+  "label": "benign",
+  "package": "pino",
+  "bytes": 6319
+ },
+ {
+  "id": "2f04295a3af0",
+  "label": "benign",
+  "package": "bunyan",
+  "bytes": 49606
+ },
+ {
+  "id": "6546e07d3cb3",
+  "label": "benign",
+  "package": "log4js",
+  "bytes": 4946
+ },
+ {
+  "id": "0074fb2652a5",
+  "label": "benign",
+  "package": "handlebars",
+  "bytes": 814
+ },
+ {
+  "id": "56d9d0560ea8",
+  "label": "benign",
+  "package": "ejs",
+  "bytes": 27968
+ },
+ {
+  "id": "96d2b0b292a2",
+  "label": "benign",
+  "package": "pug",
+  "bytes": 12912
+ },
+ {
+  "id": "cc511506c594",
+  "label": "benign",
+  "package": "marked",
+  "bytes": 42942
+ },
+ {
+  "id": "7597a0465b2d",
+  "label": "benign",
+  "package": "highlight.js",
+  "bytes": 12296
+ },
+ {
+  "id": "4d8dcdeb7167",
+  "label": "benign",
+  "package": "prismjs",
+  "bytes": 58230
+ },
+ {
+  "id": "fd976416b79a",
+  "label": "benign",
+  "package": "cheerio",
+  "bytes": 9916
+ },
+ {
+  "id": "7d9b555b8675",
+  "label": "benign",
+  "package": "jsdom",
+  "bytes": 12524
+ },
+ {
+  "id": "b1cb8de649d6",
+  "label": "benign",
+  "package": "puppeteer",
+  "bytes": 643
+ },
+ {
+  "id": "5bc827bea019",
+  "label": "benign",
+  "package": "playwright",
+  "bytes": 648
+ },
+ {
+  "id": "fd29fb889ddb",
+  "label": "benign",
+  "package": "sharp",
+  "bytes": 620
+ },
+ {
+  "id": "1261532bb35d",
+  "label": "benign",
+  "package": "jimp",
+  "bytes": 8511
+ },
+ {
+  "id": "85b86f48d26b",
+  "label": "benign",
+  "package": "fs-extra",
+  "bytes": 358
+ },
+ {
+  "id": "a9c2010e6949",
+  "label": "benign",
+  "package": "chokidar",
+  "bytes": 29448
+ },
+ {
+  "id": "7866c3120523",
+  "label": "benign",
+  "package": "nanoid",
+  "bytes": 3246
+ },
+ {
+  "id": "46b1a81cd799",
+  "label": "benign",
+  "package": "shortid",
+  "bytes": 55
+ },
+ {
+  "id": "19743dc51a95",
+  "label": "benign",
+  "package": "slugify",
+  "bytes": 8417
+ },
+ {
+  "id": "9d08cb1de318",
+  "label": "benign",
+  "package": "pluralize",
+  "bytes": 12617
+ },
+ {
+  "id": "317250ba196a",
+  "label": "benign",
+  "package": "camelcase",
+  "bytes": 7519
+ },
+ {
+  "id": "e3a6a5382f89",
+  "label": "benign",
+  "package": "kebab-case",
+  "bytes": 1124
+ },
+ {
+  "id": "7608ce3f17ea",
+  "label": "benign",
+  "package": "lodash.merge",
+  "bytes": 51155
+ },
+ {
+  "id": "0c917fed1601",
+  "label": "benign",
+  "package": "lodash.get",
+  "bytes": 23398
+ },
+ {
+  "id": "a323abf3ba73",
+  "label": "benign",
+  "package": "deepmerge",
+  "bytes": 4048
+ },
+ {
+  "id": "7e7b79154ee1",
+  "label": "benign",
+  "package": "immer",
+  "bytes": 183
+ },
+ {
+  "id": "59d961cb26a0",
+  "label": "benign",
+  "package": "lru-cache",
+  "bytes": 19282
+ },
+ {
+  "id": "53e8a33e1afb",
+  "label": "benign",
+  "package": "p-limit",
+  "bytes": 3315
+ },
+ {
+  "id": "faea1268eb0e",
+  "label": "benign",
+  "package": "p-queue",
+  "bytes": 31262
+ },
+ {
+  "id": "0ec99bdaa19e",
+  "label": "benign",
+  "package": "p-retry",
+  "bytes": 7042
+ },
+ {
+  "id": "5d38b4187378",
+  "label": "benign",
+  "package": "delay",
+  "bytes": 1503
+ },
+ {
+  "id": "fc4857dd33b9",
+  "label": "benign",
+  "package": "ms",
+  "bytes": 3024
+ },
+ {
+  "id": "c4e8bd0b2a7a",
+  "label": "benign",
+  "package": "bytes",
+  "bytes": 3613
+ },
+ {
+  "id": "0fddfea214a0",
+  "label": "benign",
+  "package": "pretty-bytes",
+  "bytes": 4103
+ },
+ {
+  "id": "b18ba4bfe2c8",
+  "label": "benign",
+  "package": "filesize",
+  "bytes": 22104
+ },
+ {
+  "id": "a851c842d219",
+  "label": "benign",
+  "package": "mime",
+  "bytes": 231
+ },
+ {
+  "id": "0ea629bad98f",
+  "label": "benign",
+  "package": "mime-types",
+  "bytes": 4546
+ },
+ {
+  "id": "107d51abfc59",
+  "label": "benign",
+  "package": "content-type",
+  "bytes": 5351
+ },
+ {
+  "id": "c75f263fbd52",
+  "label": "benign",
+  "package": "accepts",
+  "bytes": 5252
+ },
+ {
+  "id": "13f8a609cb94",
+  "label": "benign",
+  "package": "negotiator",
+  "bytes": 2516
+ },
+ {
+  "id": "a4f241534f1b",
+  "label": "benign",
+  "package": "on-finished",
+  "bytes": 4430
+ },
+ {
+  "id": "9ed62c93b6ca",
+  "label": "benign",
+  "package": "destroy",
+  "bytes": 4258
+ },
+ {
+  "id": "e6a9cc2850c0",
+  "label": "benign",
+  "package": "ee-first",
+  "bytes": 1684
+ },
+ {
+  "id": "0f1cb873e043",
+  "label": "benign",
+  "package": "statuses",
+  "bytes": 2610
+ },
+ {
+  "id": "47dca2a2c136",
+  "label": "benign",
+  "package": "escape-html",
+  "bytes": 1362
+ },
+ {
+  "id": "caaf2604134e",
+  "label": "benign",
+  "package": "encodeurl",
+  "bytes": 1578
+ },
+ {
+  "id": "39aff651c64b",
+  "label": "benign",
+  "package": "cookie",
+  "bytes": 12046
+ },
+ {
+  "id": "fd9c8b7fb541",
+  "label": "benign",
+  "package": "cookie-parser",
+  "bytes": 3397
+ },
+ {
+  "id": "3e4fb7df7876",
+  "label": "benign",
+  "package": "express-session",
+  "bytes": 16606
+ },
+ {
+  "id": "836ba2541fd5",
+  "label": "benign",
+  "package": "connect-redis",
+  "bytes": 3983
+ },
+ {
+  "id": "61f9f20690ab",
+  "label": "benign",
+  "package": "passport",
+  "bytes": 465
+ },
+ {
+  "id": "29f2f54a234c",
+  "label": "benign",
+  "package": "passport-local",
+  "bytes": 223
+ },
+ {
+  "id": "b8f8c2d95d29",
+  "label": "benign",
+  "package": "jsonschema",
+  "bytes": 629
+ },
+ {
+  "id": "433cee9c42b3",
+  "label": "benign",
+  "package": "fast-json-stringify",
+  "bytes": 37862
+ },
+ {
+  "id": "a59fbbc1ff56",
+  "label": "benign",
+  "package": "secure-json-parse",
+  "bytes": 5679
+ }
+]
