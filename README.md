@@ -1,11 +1,19 @@
 # Pre-Collapse: Vulnerability-Class Signatures in the Activation Space of Language Models
 
-> **This is not only a position.** A working reference implementation of the
-> (signature → patch) loop lives in [`engine/`](engine/): a small model reads code, its
-> pre-collapse signature indexes a database that returns the patch for the class, and an
-> AddressSanitizer oracle confirms the patch turns the crashing input safe. On a four-class
-> corpus with `microsoft/phi-1_5`: 12/12 signature-selected patches verified end-to-end,
-> 83% held-out class detection. See [`engine/README.md`](engine/README.md).
+> **This is not only a position — it is a proposed standard.**
+> [**`SPECIFICATION.md`**](SPECIFICATION.md) defines the **semantic signature**: a
+> portable, obfuscation-invariant format for expressing what code *does*, meant as the
+> behavioral successor to YARA (syntactic rules) and CWE (hand-authored taxonomy). Where a
+> YARA rule says *"these bytes appear,"* a semantic signature says *"this code behaves like
+> this"* — and keeps saying it after the bytes change.
+>
+> It ships with a **working reference implementation** and measured proof, not vaporware:
+> - [`engine/`](engine/) — the `(signature → patch)` loop on real C vulnerabilities: a
+>   small model reads code, its signature indexes a database that returns the patch, and an
+>   AddressSanitizer oracle confirms the fix. 12/12 patches verified, 83% held-out detection.
+> - [`supply-chain/`](supply-chain/) — the standard applied to the live 2025-26 npm attacks:
+>   deobfuscate → sign → detect real malware through its obfuscation (~0.93 ROC-AUC), and a
+>   worked example catching the real `chalk/debug` crypto-clipper.
 
 ---
 
