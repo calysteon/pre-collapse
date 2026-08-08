@@ -209,19 +209,77 @@ signature**, not by prose, so it is machine-readable, auto-derivable (cluster si
 and it **grows itself** as new code is read. A family SHOULD carry a human label and, where
 one exists, a CWE cross-reference, but the signature is authoritative.
 
-**Seed families (reference database):**
+**Family identifiers** are stable lowercase `snake_case` strings, addressed globally as
+`3S:<model>/<family>`. The taxonomy is grouped by domain for readability only; the family
+identifier is flat.
 
-| family | domain | CWE x-ref |
+**Status.** A family is either `ref` (a reference centroid signature is computed and
+present in the reference database) or `defined` (the behavior and identifier are specified
+as shared vocabulary, and the centroid is open for contribution, per §10). The v0.1
+reference database ships the seven `ref` families; the rest fix the vocabulary so
+contributions and independent implementations agree on identifiers from day one, exactly
+as CWE fixes weakness names before any single tool covers them all.
+
+**Memory safety (native code)**
+
+| family | CWE x-ref | status |
 |---|---|---|
-| `stack_buffer_overflow` | memory-safety | CWE-121 |
-| `heap_buffer_overflow` | memory-safety | CWE-122 |
-| `integer_overflow` | memory-safety | CWE-190 |
-| `use_after_free` | memory-safety | CWE-416 |
-| `crypto_clipper` | supply-chain / browser | CWE-749 |
-| `credential_exfil` | supply-chain / CI | CWE-522 |
-| `install_exec` | supply-chain / npm | CWE-829 |
+| `stack_buffer_overflow` | CWE-121 | ref |
+| `heap_buffer_overflow` | CWE-122 | ref |
+| `integer_overflow` | CWE-190 | ref |
+| `use_after_free` | CWE-416 | ref |
+| `double_free` | CWE-415 | defined |
+| `out_of_bounds_read` | CWE-125 | defined |
+| `null_dereference` | CWE-476 | defined |
+| `format_string` | CWE-134 | defined |
+| `type_confusion` | CWE-843 | defined |
 
-The taxonomy is open, the point of the standard is that anyone can contribute a family.
+**Injection and traversal**
+
+| family | CWE x-ref | status |
+|---|---|---|
+| `command_injection` | CWE-78 | defined |
+| `code_injection_eval` | CWE-95 | defined |
+| `sql_injection` | CWE-89 | defined |
+| `path_traversal` | CWE-22 | defined |
+| `unsafe_deserialization` | CWE-502 | defined |
+| `server_side_request_forgery` | CWE-918 | defined |
+| `prototype_pollution` | CWE-1321 | defined |
+
+**Supply-chain and malware behaviors**
+
+| family | CWE x-ref | status |
+|---|---|---|
+| `crypto_clipper` | CWE-749 | ref |
+| `credential_exfil` | CWE-522 | ref |
+| `install_exec` | CWE-829 | ref |
+| `network_exfil` | CWE-200 | defined |
+| `env_secret_harvest` | CWE-526 | defined |
+| `staged_loader_dropper` | CWE-506 | defined |
+| `self_propagation` | CWE-506 | defined |
+| `reverse_shell` | CWE-506 | defined |
+| `backdoor_hardcoded_cred` | CWE-798 | defined |
+| `cryptominer` | CWE-400 | defined |
+| `anti_analysis_evasion` | CWE-511 | defined |
+
+**Web and browser**
+
+| family | CWE x-ref | status |
+|---|---|---|
+| `xss_sink` | CWE-79 | defined |
+| `open_redirect` | CWE-601 | defined |
+| `forced_download_drive_by` | CWE-494 | defined |
+
+**Crypto and secrets**
+
+| family | CWE x-ref | status |
+|---|---|---|
+| `weak_crypto` | CWE-327 | defined |
+| `insecure_randomness` | CWE-338 | defined |
+| `hardcoded_secret` | CWE-798 | defined |
+
+The taxonomy is open: the point of the standard is that anyone can contribute a `ref`
+signature for a `defined` family, or propose a new family, per §10.
 
 ---
 
