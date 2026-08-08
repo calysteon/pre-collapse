@@ -40,6 +40,24 @@ Trained-probe operating points (held out):
 centroid distance). **It is not a length artifact** — file length alone scores ROC-AUC
 0.580, near chance, while the probe scores 0.949.
 
+### Hardening: harder benign set (the confound test)
+
+The 135 benign above are *popular* packages, so the number could reflect
+"malware-sample-shaped vs top-npm-shaped." We re-ran against 180 **obscure, mid-tail**
+packages (median 1646 bytes — *smaller* than the malware, so size can't help):
+
+| same malware vs … | ROC-AUC | recall @ precision ≥ 0.95 |
+|---|---|---|
+| popular benign | 0.949 | 0.891 |
+| **hard (obscure) benign** | **0.925** | **0.667** |
+| popular + hard combined | 0.935 | 0.775 |
+
+**The core signal survives** — ROC-AUC holds at 0.925 against obscure benign, so the probe
+detects maliciousness, not popularity or size. **But the deployable operating point is
+more modest than the popular-only number suggested:** at ≥95% precision, recall is
+**~0.67–0.78**, not 0.89. The high-precision number was flattered by easy, polished benign.
+Honest headline: **~0.93 ROC-AUC, ~67–78% of real malware caught at 95% precision.**
+
 ## Real-payload receipt (chalk/debug, September 2025)
 
 The actual compromised `debug@4.4.2`: a 76 KB obfuscated crypto-clipper injected into a
@@ -58,11 +76,13 @@ That is the deobfuscate-then-sign loop, end to end, on the real attack.
 
 - **Subset, first-pass.** 264 packages, one representative file per package (install-hook
   → main → index.js → largest .js). Not the full 27,876-sample dataset.
-- **Benign = popular packages.** Length confound is ruled out, but other distributional
-  differences between "vetted-malware samples" and "top-npm packages" may remain. The
-  next validation is a *harder* benign set (random low-download packages).
-- **2.2% FPR is too high for full-npm scale** (millions of packages → many false alarms).
-  Real deployment needs a lower FPR or a second-stage filter.
+- **Deployable recall is ~67–78% at 95% precision** (against obscure/combined benign), not
+  the 89% the popular-only set suggested. The core AUC (~0.93) is confound-robust, but the
+  high-precision operating point is where obscure benign packages confuse it.
+- **Still a subset.** 129 malware / 315 benign; not the full 27,876-sample dataset, and not
+  yet run against the public SynthChain benchmark.
+- **Full-npm scale needs a lower FPR** (millions of packages → many false alarms) — a
+  second-stage filter or a stronger model.
 - **Deobfuscation is lightly exercised here** (20/264); its necessity is shown separately
   on the real chalk/debug payload, not stress-tested across the corpus.
 - **Signatures are a whole-file mean-pool.** Precise line-localization is unsolved (see
