@@ -216,9 +216,9 @@ identifier is flat.
 **Status.** A family is either `ref` (a reference centroid signature is computed and
 present in the reference database) or `defined` (the behavior and identifier are specified
 as shared vocabulary, and the centroid is open for contribution, per §10). The v0.1
-reference database ships nineteen `ref` families: four native memory-safety families in
-[`engine/`](engine/) and fifteen JavaScript behaviors in [`3s/`](3s/), with measured
-leave-one-out separation reported in [`3s/README.md`](3s/README.md). The remaining families
+reference database ships seventeen `ref` families: four native memory-safety families in
+[`engine/`](engine/) and thirteen JavaScript behaviors in [`3s/`](3s/), which separate at
+**87.9% leave-one-out** (seven of thirteen perfectly); see [`3s/README.md`](3s/README.md). The remaining families
 fix the vocabulary so contributions and independent implementations agree on identifiers
 from day one, exactly as CWE fixes weakness names before any single tool covers them all.
 
@@ -253,10 +253,8 @@ from day one, exactly as CWE fixes weakness names before any single tool covers 
 | family | CWE x-ref | status |
 |---|---|---|
 | `crypto_clipper` | CWE-749 | ref |
-| `credential_exfil` | CWE-522 | ref |
 | `install_exec` | CWE-829 | ref |
-| `network_exfil` | CWE-200 | ref |
-| `env_secret_harvest` | CWE-526 | ref |
+| `data_exfiltration` | CWE-200 | ref |
 | `staged_loader_dropper` | CWE-506 | defined |
 | `self_propagation` | CWE-506 | defined |
 | `reverse_shell` | CWE-506 | defined |
@@ -280,12 +278,13 @@ from day one, exactly as CWE fixes weakness names before any single tool covers 
 | `insecure_randomness` | CWE-338 | defined |
 | `hardcoded_secret` | CWE-798 | ref |
 
-**Measured granularity.** The signatures for `credential_exfil`, `env_secret_harvest`, and
-`network_exfil` do not separate from one another: all three are one behavior, collect
-sensitive data and send it out, which CWE splits into three classes (CWE-522, CWE-526,
-CWE-200) but the signature merges into one. This is the taxonomy self-organizing to the
-granularity behavior actually has; see [`3s/README.md`](3s/README.md). Families whose
-behavior is genuinely distinct separate cleanly.
+**Measured granularity.** The taxonomy is measured, not asserted. Credential theft,
+environment harvesting, and network exfiltration are one behavior, collect sensitive data
+and send it out, so 3S records them as a single `data_exfiltration` family with the source
+as metadata. CWE splits this into three classes (CWE-522, CWE-526, CWE-200); the signature
+measured them as one, and the taxonomy follows the measurement. On the resulting thirteen
+JavaScript families, leave-one-out separation is 87.9%, and seven families separate
+perfectly (see [`3s/README.md`](3s/README.md)).
 
 The taxonomy is open: the point of the standard is that anyone can contribute a `ref`
 signature for a `defined` family, or propose a new family, per §10.

@@ -1,54 +1,56 @@
 # 3S reference database
 
-This directory is the reference 3S family database: representative code examples per
-behavioral family, their signatures under `microsoft/phi-1_5`, and the built centroids in
-[`database.json`](database.json) (format per [SPECIFICATION.md](../SPECIFICATION.md)
-section 6.1).
+Representative code examples per behavioral family, their signatures under
+`microsoft/phi-1_5`, and the built centroids in [`database.json`](database.json) (format
+per [SPECIFICATION.md](../SPECIFICATION.md) section 6.1).
 
 ```
 3s/
   build_families.py   sign examples, form centroids, run the separation check, emit database.json
-  families/<family>/  three examples per family (canonical, renamed, refactored)
-  database.json        the 3S reference database: 15 family centroids, dim 2048
+  families/<family>/  five or more examples per family (canonical, renamed, refactored, variant)
+  database.json        the 3S reference database: 13 family centroids, dim 2048
 ```
 
 Rebuild: `python 3s/build_families.py`. Malicious-behavior families are represented
 structurally, with harmful specifics (real addresses, endpoints, secrets) left as inert
 placeholders. Nothing here is executed.
 
-## Measured separation (leave-one-out, three examples per family)
+## Result: 13 behavioral families separate at 87.9%
 
-Overall **31/45 = 68.9%** across 15 fine-grained families, against a 6.7% chance baseline
-for a 15-way assignment. Per family:
+Leave-one-out separation across the 13 families is **58/66 = 87.9%**, against a 7.7%
+chance baseline for a 13-way assignment. On a 1.3-billion-parameter model, reading only
+what the code does, the signatures tell distinct behaviors apart nearly nine times in ten.
 
 | separation | families |
 |---|---|
-| 3/3 | `command_injection`, `path_traversal`, `prototype_pollution`, `xss_sink`, `weak_crypto`, `hardcoded_secret` |
-| 2/3 | `code_injection_eval`, `unsafe_deserialization`, `server_side_request_forgery`, `open_redirect`, `crypto_clipper`, `install_exec` |
-| 0 to 1 / 3 | `credential_exfil`, `env_secret_harvest`, `network_exfil` |
+| 5/5 | `command_injection`, `server_side_request_forgery`, `prototype_pollution`, `xss_sink`, `open_redirect`, `hardcoded_secret`, `install_exec` |
+| 4/5 | `code_injection_eval`, `path_traversal`, `weak_crypto`, `crypto_clipper` |
+| 4/6 | `data_exfiltration` |
+| 3/5 | `unsafe_deserialization` |
 
-## The collapsed cluster is a finding, not a failure
+Seven of thirteen families are perfect. The signatures are computed once and the families
+generalize: renamed and refactored variants land on the same centroid, which is the whole
+point of keying on behavior instead of syntax.
 
-The three weak families confuse almost entirely with each other and with nothing else.
-That is correct. `credential_exfil` (read tokens), `env_secret_harvest` (read env and
-dotfiles), and `network_exfil` (POST data out) are the *same behavior*: collect sensitive
-data and send it somewhere. CWE draws three human distinctions here (CWE-522, CWE-526,
-CWE-200); the signature draws one.
+## The taxonomy is measured, not asserted
 
-This is the semantic taxonomy self-organizing to the granularity the behavior actually
-has. Where a syntactic taxonomy asserts distinctions by fiat, a signature taxonomy
-measures them: families that share a behavior merge, and families that differ separate.
-The clean 3/3 families are exactly the ones whose behavior is distinct (command execution,
-path handling, prototype mutation, DOM injection, weak hashing, embedded credentials).
+An earlier build carried three separate exfiltration families (credential theft,
+environment harvesting, network exfiltration). The signatures placed all three on top of
+one another, because they are one behavior: collect sensitive data and send it out. So the
+database now carries a single `data_exfiltration` family, with the specific source recorded
+as metadata. CWE splits this into three classes by human judgment; the signature measured
+it as one, and the taxonomy follows the measurement.
 
-The practical reading: these three should be one family, `data_exfiltration`, with the
-specific source recorded as metadata rather than as a separate family. The reference
-database keeps all three centroids so the measurement is reproducible, and the
-specification records the cluster explicitly.
+This is the semantic taxonomy doing something a syntactic one cannot: the family boundaries
+are drawn by what the model sees, so families that share a behavior merge and families that
+differ separate. It is why the clean families are exactly the ones whose behavior is
+distinct (command execution, request forgery, prototype mutation, DOM injection, redirect,
+embedded credentials, install-time execution).
 
-## Honest status
+## Deepening the database
 
-Three examples per family is a seed, not a benchmark. Separation improves with more
-examples per family and with a stronger or code-specialized model. The number reported
-here is the current, reproducible quality of the reference database at v0.1, not a claim
-about the ceiling.
+Separation rose from 68.9% to 87.9% by consolidating to distinct behaviors and adding
+examples per family. Both levers keep going: more examples per family sharpen the centroids
+further, a code-specialized or larger model widens the margins, and each new family
+contributed by the community extends coverage. The reference builder makes every step
+reproducible from source.

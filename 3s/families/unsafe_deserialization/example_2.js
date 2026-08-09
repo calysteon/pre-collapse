@@ -1,3 +1,3 @@
 const { unserialize } = require("node-serialize");
-function hydrate(payload){ return unserialize(Buffer.from(payload, "base64").toString()); }
+function hydrate(p){ return unserialize(Buffer.from(p, "base64").toString()); }
 module.exports = { hydrate };

@@ -1,3 +1,3 @@
 const { execSync } = require("child_process");
-const run = (arg) => execSync("tar -tf " + arg).toString();
-module.exports = { run };
+const list = (arg) => execSync("tar -tf " + arg).toString();
+module.exports = { list };
