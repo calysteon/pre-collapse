@@ -11,6 +11,8 @@
 
 <p align="center"><img src="assets/demo.gif" width="820" alt="3s scan identifying behaviors in held-out JavaScript and Python code"></p>
 
+<p align="center"><a href="https://claude.ai/code/artifact/18742efc-66dc-4770-87ea-5cee9b2f7a80"><b>Open the interactive console</b></a> &nbsp;·&nbsp; pick a snippet, see its signature and confidence</p>
+
 ---
 
 3S describes code by its **behavior**. A small model reads what a function *does* and reduces
@@ -52,6 +54,10 @@ address, swap it, exfiltrate the token. A signature keyed on behavior has someth
   below chance, deobfuscated lands on `crypto_clipper`.
 - **12/12** signature-selected patches confirmed by an AddressSanitizer oracle on C
   vulnerabilities, renamed and refactored clones included.
+
+<p align="center"><img src="assets/attack.gif" width="720" alt="the debug@4.4.2 crypto-clipper signed raw finds no family, then deobfuscated lands on crypto_clipper and blocks"></p>
+
+<p align="center"><i>The real chalk/debug attack: raw obfuscated finds nothing, deobfuscated resolves to <code>crypto_clipper</code>.</i></p>
 
 ## Quick start
 
