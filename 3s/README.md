@@ -10,6 +10,7 @@ Representative code examples per behavioral family, their signatures under
   build_families.py   sign JS examples, form centroids, emit database.json
   build_python.py     sign Python examples, form centroids, emit database_python.json
   cross_language.py   match Python behaviors against the JS centroids
+  model_agnostic.py   re-sign the families under a second model, report separation
   scan.py             match code files against the database, gate on severity
   policy.py           per-family severity (block vs warn), swappable without recompute
   validate.py         model-free integrity check: database matches corpus
@@ -86,6 +87,26 @@ carries a per-language database, and each separates cleanly within its language:
 The two families that do transfer across languages are `hardcoded_secret` and
 `install_exec`, whose surface is nearly identical in both (credential strings, process
 spawns). Everything else is language-specific, which is expected and correct.
+
+## Not a one-model artifact
+
+The obvious worry about a learned signature is that it reads structure specific to one
+network. So the same 13 families were signed under a second model from a different lineage,
+Alibaba's code-specialized Qwen2.5-Coder-0.5B, less than half the size of phi-1_5:
+
+| model | params | separation |
+|---|---|---|
+| `microsoft/phi-1_5` | 1.3B | 91.0% |
+| `Qwen/Qwen2.5-Coder-0.5B` | 0.5B | 76.1% |
+| chance | | 7.7% |
+
+Both are about an order of magnitude above chance, so the behavioral structure is real and not
+a phi-1_5 quirk; four families (`command_injection`, `crypto_clipper`, `hardcoded_secret`,
+`prototype_pollution`) are perfect under both. Separation is also clearly model-dependent: the
+larger model reads it more cleanly, and the smaller model blurs the harder families
+(`server_side_request_forgery`, `weak_crypto`, `code_injection_eval` each 2/5). That is why a
+signature is addressed `3S:<model>/<family>` and matched only within one model. Reproduce with
+`python 3s/model_agnostic.py --model <hf-id>`.
 
 ## The taxonomy is measured, not asserted
 

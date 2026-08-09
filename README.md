@@ -11,6 +11,8 @@
 
 <p align="center"><img src="assets/demo.gif" width="820" alt="3s scan identifying behaviors in held-out JavaScript and Python code"></p>
 
+<p align="center"><a href="https://claude.ai/code/artifact/18742efc-66dc-4770-87ea-5cee9b2f7a80"><b>Open the interactive console</b></a> &nbsp;·&nbsp; pick a snippet, see its signature and confidence</p>
+
 ---
 
 3S describes code by its **behavior**. A small model reads what a function *does* and reduces
@@ -46,12 +48,19 @@ address, swap it, exfiltrate the token. A signature keyed on behavior has someth
 - **Cross-language**: the same 13 behaviors in Python separate at **88.9%**; 3S carries a
   signature database per language (npm and PyPI), since a behavior reads differently across
   ecosystems.
+- **Not a one-model artifact**: a second, different-lineage model (Qwen2.5-Coder-0.5B, half
+  the size) separates the same 13 families at **76.1%**, an order of magnitude above the 7.7%
+  chance floor. The structure is real; the larger model just reads it more cleanly.
 - **0.93 ROC-AUC** distinguishing real npm malware from real benign packages, held out, and
   it holds against obscure packages smaller than the malware.
 - **Caught the real `chalk`/`debug` crypto-clipper** through its obfuscation: raw signs
   below chance, deobfuscated lands on `crypto_clipper`.
 - **12/12** signature-selected patches confirmed by an AddressSanitizer oracle on C
   vulnerabilities, renamed and refactored clones included.
+
+<p align="center"><img src="assets/attack.gif" width="720" alt="the debug@4.4.2 crypto-clipper signed raw finds no family, then deobfuscated lands on crypto_clipper and blocks"></p>
+
+<p align="center"><i>The real chalk/debug attack: raw obfuscated finds nothing, deobfuscated resolves to <code>crypto_clipper</code>.</i></p>
 
 ## Quick start
 

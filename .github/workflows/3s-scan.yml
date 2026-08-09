@@ -4,9 +4,15 @@ name: 3s-scan
 # adoption front-end: a maintainer sees a block-severity family (crypto_clipper,
 # data_exfiltration, install_exec, ...) flagged inline before the code merges.
 #
+# This repository is the standard itself, so its own signature material, the family corpus,
+# the builders that embed those examples inline, the C and npm reference trees, and the demo
+# snippets, all contain malicious behavior on purpose. The self-scan therefore excludes those
+# trees; a consumer copying this workflow into their own repo drops the exclude and scans
+# everything. When nothing outside those trees changed, the scan step is skipped and the job
+# is green.
+#
 # Note: the first run downloads a 1.3B model (~2.7 GB) and signs on CPU, so it is not
-# instant; the model is cached across runs. For a large monorepo, scope `paths:` or pass
-# an explicit changed-files list.
+# instant; the model is cached across runs.
 
 on:
   pull_request:
@@ -28,9 +34,15 @@ jobs:
           head="${{ github.sha }}"
           files=$(git diff --name-only --diff-filter=d "$base" "$head" \
             | grep -E '\.(js|py)$' \
-            | grep -vE '(^|/)(node_modules|dist|build|vendor)/' || true)
-          echo "files=$(echo $files | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
-          echo "changed: $files"
+            | grep -vE '(^|/)(node_modules|dist|build|vendor)/' \
+            | grep -vE '^(3s/|engine/|supply-chain/|assets/)' || true)
+          if [ -z "$files" ]; then
+            echo "files=" >> "$GITHUB_OUTPUT"
+            echo "changed: (none outside the standard's own signature trees)"
+          else
+            echo "files=$(printf '%s ' $files)" >> "$GITHUB_OUTPUT"
+            echo "changed: $files"
+          fi
 
       - name: 3S behavioral scan
         if: steps.changed.outputs.files != ''

@@ -332,8 +332,12 @@ is [`3s/CONTRIBUTING.md`](3s/CONTRIBUTING.md).
 
 ## 11. Open problems (honest status)
 
-- **Cross-model portability.** Signatures are model-relative. A canonical model per spec
-  version, or a learned projection between models, is unspecified and needed.
+- **Cross-model portability.** Signatures are model-relative, so each is addressed
+  `3S:<model>/<family>` and matched only within one model. The behavioral *structure* is not
+  model-specific: a second, different-lineage model (Qwen2.5-Coder-0.5B) separates the same 13
+  families at 76.1% against phi-1_5's 91.0%, both far above the 7.7% chance floor
+  (`3s/model_agnostic.py`). What is still unspecified is a canonical model per spec version, or
+  a learned projection that lets a signature from one model match a database built with another.
 - **Calibrated thresholds at scale.** Deployable precision/recall depends on the decision
   function and the benign distribution; low false-positive rates at ecosystem scale are
   not yet demonstrated.
