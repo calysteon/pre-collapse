@@ -1,0 +1,11 @@
+{
+  "id": "cwe121_stack_overflow",
+  "cwe": "CWE-121",
+  "class_id": "stack_buffer_overflow",
+  "title": "Unbounded string copy into a fixed stack buffer",
+  "vuln_function": "handle",
+  "patch_class": "bounded_string_copy",
+  "poc": "poc.bin",
+  "expect_vuln": "VULNERABLE",
+  "expect_patched": "SAFE"
+}

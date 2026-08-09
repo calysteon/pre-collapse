@@ -1,0 +1,5 @@
+# NEVER commit malware payloads or fetched samples
+corpus/
+malicious/
+benign/
+*.zip

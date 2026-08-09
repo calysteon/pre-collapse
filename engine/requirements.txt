@@ -1,0 +1,9 @@
+# Core loop (oracle + database + matching + pipeline + tests). Runs offline from the
+# committed signatures; needs only numpy and a C compiler with AddressSanitizer (gcc/clang).
+numpy>=1.24
+pytest>=7.0
+
+# Real signature extraction (the --model path / tools/compute_signatures.py) additionally
+# needs torch + transformers. Left optional so the loop is testable without model weights.
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+#   pip install transformers

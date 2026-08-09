@@ -1,0 +1,1082 @@
+[
+ {
+  "id": "0fc941040e57",
+  "label": "benign",
+  "package": "@stdlib/array-base-copy-indexed",
+  "bytes": 985
+ },
+ {
+  "id": "ca00999bb5c0",
+  "label": "benign",
+  "package": "hh-mm-ss",
+  "bytes": 3216
+ },
+ {
+  "id": "ccf39c0f5ebe",
+  "label": "benign",
+  "package": "@mtcute/html-parser",
+  "bytes": 13029
+ },
+ {
+  "id": "2b4af012ba53",
+  "label": "benign",
+  "package": "age-encryption",
+  "bytes": 10427
+ },
+ {
+  "id": "a84ee0e05313",
+  "label": "benign",
+  "package": "dt-format",
+  "bytes": 179
+ },
+ {
+  "id": "73ebe047e2a8",
+  "label": "benign",
+  "package": "vuex-cache",
+  "bytes": 2951
+ },
+ {
+  "id": "96022cadfc9a",
+  "label": "benign",
+  "package": "strip-outer",
+  "bytes": 360
+ },
+ {
+  "id": "0b0e596c3d0a",
+  "label": "benign",
+  "package": "igniculus",
+  "bytes": 19927
+ },
+ {
+  "id": "4f8dfd95caea",
+  "label": "benign",
+  "package": "@nextcloud/babel-config",
+  "bytes": 310
+ },
+ {
+  "id": "35d87cfa7696",
+  "label": "benign",
+  "package": "commitlint-config-monorepo",
+  "bytes": 627
+ },
+ {
+  "id": "5c0348efc9af",
+  "label": "benign",
+  "package": "intl-messageformat",
+  "bytes": 11249
+ },
+ {
+  "id": "1e3b90a3d962",
+  "label": "benign",
+  "package": "gulp-cache-bust",
+  "bytes": 1405
+ },
+ {
+  "id": "8a80523d7909",
+  "label": "benign",
+  "package": "json-merger",
+  "bytes": 1044
+ },
+ {
+  "id": "7b362169551a",
+  "label": "benign",
+  "package": "async-parallel-queue",
+  "bytes": 4286
+ },
+ {
+  "id": "f45f176c1f4f",
+  "label": "benign",
+  "package": "dino-color-picker",
+  "bytes": 24808
+ },
+ {
+  "id": "3cb6826099e0",
+  "label": "benign",
+  "package": "@hint/parser-css",
+  "bytes": 2420
+ },
+ {
+  "id": "20b72b1cd7bf",
+  "label": "benign",
+  "package": "since-time-ago",
+  "bytes": 957
+ },
+ {
+  "id": "e026513db78b",
+  "label": "benign",
+  "package": "helem-cli",
+  "bytes": 4688
+ },
+ {
+  "id": "eb4e441bb08b",
+  "label": "benign",
+  "package": "eslint-config-twilio-base",
+  "bytes": 131
+ },
+ {
+  "id": "581254b76fab",
+  "label": "benign",
+  "package": "@commercetools-uikit/date-time-field",
+  "bytes": 232
+ },
+ {
+  "id": "93bb956d911f",
+  "label": "benign",
+  "package": "sooner",
+  "bytes": 530
+ },
+ {
+  "id": "4a7742a25ca5",
+  "label": "benign",
+  "package": "@charlie-labs/config",
+  "bytes": 48
+ },
+ {
+  "id": "072ba97caafd",
+  "label": "benign",
+  "package": "cache-manager-fs",
+  "bytes": 12819
+ },
+ {
+  "id": "82678c80983a",
+  "label": "benign",
+  "package": "koa-logger-winston",
+  "bytes": 757
+ },
+ {
+  "id": "053a9982e9d5",
+  "label": "benign",
+  "package": "@rharkor/logger",
+  "bytes": 4684
+ },
+ {
+  "id": "133162562a80",
+  "label": "benign",
+  "package": "borel",
+  "bytes": 12943
+ },
+ {
+  "id": "84367aa96540",
+  "label": "benign",
+  "package": "parse-english",
+  "bytes": 44
+ },
+ {
+  "id": "ed67927c2b19",
+  "label": "benign",
+  "package": "length-stream",
+  "bytes": 735
+ },
+ {
+  "id": "7c433d8cde10",
+  "label": "benign",
+  "package": "random-base64-string",
+  "bytes": 344
+ },
+ {
+  "id": "745e2c150523",
+  "label": "benign",
+  "package": "browserslist-config-seek",
+  "bytes": 156
+ },
+ {
+  "id": "d438b1bb527d",
+  "label": "benign",
+  "package": "@aws-sdk/util-utf8-browser",
+  "bytes": 543
+ },
+ {
+  "id": "74b968232de3",
+  "label": "benign",
+  "package": "@traqula/parser-sparql-1-2",
+  "bytes": 62
+ },
+ {
+  "id": "d73c5330ad8b",
+  "label": "benign",
+  "package": "file-system-access",
+  "bytes": 456
+ },
+ {
+  "id": "3e9bd5516ef9",
+  "label": "benign",
+  "package": "speed-date",
+  "bytes": 46
+ },
+ {
+  "id": "ea2bcd839c95",
+  "label": "benign",
+  "package": "eslint-config-node",
+  "bytes": 45
+ },
+ {
+  "id": "711b8bb194db",
+  "label": "benign",
+  "package": "markdown-to-react-components",
+  "bytes": 5795
+ },
+ {
+  "id": "5c7f98dd00ff",
+  "label": "benign",
+  "package": "@opengis/fastify-file",
+  "bytes": 385
+ },
+ {
+  "id": "eac269911bc5",
+  "label": "benign",
+  "package": "@bundled-es-modules/postcss-calc-ast-parser",
+  "bytes": 61
+ },
+ {
+  "id": "d496cbc8a9f4",
+  "label": "benign",
+  "package": "@appigram/react-rangeslider",
+  "bytes": 349
+ },
+ {
+  "id": "ff097f578e63",
+  "label": "benign",
+  "package": "deadunit",
+  "bytes": 1475
+ },
+ {
+  "id": "302755a78bc7",
+  "label": "benign",
+  "package": "random-message",
+  "bytes": 1815
+ },
+ {
+  "id": "ba41954404a4",
+  "label": "benign",
+  "package": "regex-iso-date",
+  "bytes": 185
+ },
+ {
+  "id": "94809db6461d",
+  "label": "benign",
+  "package": "synchd",
+  "bytes": 3468
+ },
+ {
+  "id": "47cb483b2ab7",
+  "label": "benign",
+  "package": "@frida/stream",
+  "bytes": 432
+ },
+ {
+  "id": "854e39119bf0",
+  "label": "benign",
+  "package": "@azu/format-text",
+  "bytes": 661
+ },
+ {
+  "id": "9f208ce7f99c",
+  "label": "benign",
+  "package": "@faasjs/logger",
+  "bytes": 11294
+ },
+ {
+  "id": "3624a5bb6d45",
+  "label": "benign",
+  "package": "updatable-log",
+  "bytes": 1356
+ },
+ {
+  "id": "4ea88c35a307",
+  "label": "benign",
+  "package": "@slickgrid-universal/text-export",
+  "bytes": 94
+ },
+ {
+  "id": "109f26748cb5",
+  "label": "benign",
+  "package": "@metamask/eslint-config-mocha",
+  "bytes": 959
+ },
+ {
+  "id": "9287ca28a42e",
+  "label": "benign",
+  "package": "metalsmith-date-in-filename",
+  "bytes": 1081
+ },
+ {
+  "id": "78a07e9b8169",
+  "label": "benign",
+  "package": "ready-test",
+  "bytes": 5658
+ },
+ {
+  "id": "f253cba7d320",
+  "label": "benign",
+  "package": "browserslist-to-esbuild",
+  "bytes": 2481
+ },
+ {
+  "id": "ac2a18a3c07a",
+  "label": "benign",
+  "package": "@cdm-logger/client",
+  "bytes": 218
+ },
+ {
+  "id": "ce98a7c03e0f",
+  "label": "benign",
+  "package": "math-expression-context",
+  "bytes": 313
+ },
+ {
+  "id": "7b9d2d177b38",
+  "label": "benign",
+  "package": "@arcjet/body",
+  "bytes": 4964
+ },
+ {
+  "id": "72188e0f5500",
+  "label": "benign",
+  "package": "@loaders.gl/obj",
+  "bytes": 19559
+ },
+ {
+  "id": "f0ab89af2c62",
+  "label": "benign",
+  "package": "@osmonauts/math",
+  "bytes": 984
+ },
+ {
+  "id": "85ffec892f31",
+  "label": "benign",
+  "package": "i18n-node-yaml",
+  "bytes": 7020
+ },
+ {
+  "id": "9dd9c227078d",
+  "label": "benign",
+  "package": "Logger",
+  "bytes": 3813
+ },
+ {
+  "id": "34ecf48f4e26",
+  "label": "benign",
+  "package": "node-xlsx",
+  "bytes": 4351
+ },
+ {
+  "id": "95aed935b637",
+  "label": "benign",
+  "package": "@electron-toolkit/eslint-config-prettier",
+  "bytes": 247
+ },
+ {
+  "id": "fdbcd127aebb",
+  "label": "benign",
+  "package": "@rnwonder/simple-datejs",
+  "bytes": 150
+ },
+ {
+  "id": "684c5ff8a23c",
+  "label": "benign",
+  "package": "nv-array-combo",
+  "bytes": 3475
+ },
+ {
+  "id": "6a39bab54b1c",
+  "label": "benign",
+  "package": "@ozen-ui/logger",
+  "bytes": 1565
+ },
+ {
+  "id": "c6d761d0832e",
+  "label": "benign",
+  "package": "postgresql-eslint-parser",
+  "bytes": 770
+ },
+ {
+  "id": "6d1b791a9bd9",
+  "label": "benign",
+  "package": "@file-viewer/renderer-pdf",
+  "bytes": 806
+ },
+ {
+  "id": "02f410bb2dff",
+  "label": "benign",
+  "package": "level-blobs",
+  "bytes": 9162
+ },
+ {
+  "id": "d924202a1734",
+  "label": "benign",
+  "package": "pi-startup-header",
+  "bytes": 1027
+ },
+ {
+  "id": "6582f9ff7a9e",
+  "label": "benign",
+  "package": "nuvo-exceljs",
+  "bytes": 437
+ },
+ {
+  "id": "729385e94604",
+  "label": "benign",
+  "package": "strapi-middleware-cache",
+  "bytes": 2753
+ },
+ {
+  "id": "a62d1ddb6634",
+  "label": "benign",
+  "package": "markdown-it-shiki",
+  "bytes": 4353
+ },
+ {
+  "id": "2d96f221cca7",
+  "label": "benign",
+  "package": "@aerialist7/react-dates",
+  "bytes": 84
+ },
+ {
+  "id": "8de674f65927",
+  "label": "benign",
+  "package": "@stackone/logger",
+  "bytes": 238
+ },
+ {
+  "id": "dd4b34061b97",
+  "label": "benign",
+  "package": "@axux/date",
+  "bytes": 460
+ },
+ {
+  "id": "7079a44cecfd",
+  "label": "benign",
+  "package": "rp-queue",
+  "bytes": 2140
+ },
+ {
+  "id": "cb493e9a36c7",
+  "label": "benign",
+  "package": "@smakss/random-string",
+  "bytes": 1769
+ },
+ {
+  "id": "5f64788b5aa8",
+  "label": "benign",
+  "package": "sheets",
+  "bytes": 1641
+ },
+ {
+  "id": "ed6491164b3f",
+  "label": "benign",
+  "package": "@abetomo/vsq",
+  "bytes": 129
+ },
+ {
+  "id": "d9c8257cf0f4",
+  "label": "benign",
+  "package": "@osdlabel/geometry",
+  "bytes": 217
+ },
+ {
+  "id": "972638cef3bb",
+  "label": "benign",
+  "package": "@bandf/framework-testing",
+  "bytes": 370
+ },
+ {
+  "id": "cfe1d187253c",
+  "label": "benign",
+  "package": "@mtcute/markdown-parser",
+  "bytes": 13219
+ },
+ {
+  "id": "92d0c479ae42",
+  "label": "benign",
+  "package": "react-otp-input",
+  "bytes": 7061
+ },
+ {
+  "id": "70c7a5e90298",
+  "label": "benign",
+  "package": "pear-logger",
+  "bytes": 7030
+ },
+ {
+  "id": "380a13a44a15",
+  "label": "benign",
+  "package": "node-red-contrib-multiple-queue",
+  "bytes": 49
+ },
+ {
+  "id": "c6fa49f4f595",
+  "label": "benign",
+  "package": "html-entities",
+  "bytes": 5416
+ },
+ {
+  "id": "369973a72447",
+  "label": "benign",
+  "package": "v-range-flyout",
+  "bytes": 5352
+ },
+ {
+  "id": "30a7e9d1e4c8",
+  "label": "benign",
+  "package": "react-random-reveal",
+  "bytes": 3867
+ },
+ {
+  "id": "b9bca4fc090e",
+  "label": "benign",
+  "package": "@into-the-fathom/units",
+  "bytes": 2938
+ },
+ {
+  "id": "7738e764133c",
+  "label": "benign",
+  "package": "markdown-to-html",
+  "bytes": 47
+ },
+ {
+  "id": "1de27415cc46",
+  "label": "benign",
+  "package": "@jingwood/graphics-math",
+  "bytes": 2437
+ },
+ {
+  "id": "49d301414a7a",
+  "label": "benign",
+  "package": "html5parser",
+  "bytes": 8389
+ },
+ {
+  "id": "f66d569fd5ee",
+  "label": "benign",
+  "package": "react-input-range-rtl",
+  "bytes": 1273
+ },
+ {
+  "id": "76fbdaa60320",
+  "label": "benign",
+  "package": "send-ranges",
+  "bytes": 3614
+ },
+ {
+  "id": "f39dd2e6cc0b",
+  "label": "benign",
+  "package": "@iconify-json/ep",
+  "bytes": 212
+ },
+ {
+  "id": "825047a3340a",
+  "label": "benign",
+  "package": "cidr-range",
+  "bytes": 571
+ },
+ {
+  "id": "b6911063dbd2",
+  "label": "benign",
+  "package": "pomelo-ansser-logger",
+  "bytes": 41
+ },
+ {
+  "id": "88238542c732",
+  "label": "benign",
+  "package": "@loaders.gl/ply",
+  "bytes": 20169
+ },
+ {
+  "id": "40e7cbebc445",
+  "label": "benign",
+  "package": "chokidar-cli",
+  "bytes": 7266
+ },
+ {
+  "id": "18b43c4683ea",
+  "label": "benign",
+  "package": "dataalchemy",
+  "bytes": 6228
+ },
+ {
+  "id": "55d40daf8274",
+  "label": "benign",
+  "package": "ranges-apply",
+  "bytes": 2436
+ },
+ {
+  "id": "4b4f2602fbf7",
+  "label": "benign",
+  "package": "@pythnetwork/entropy-sdk-solidity",
+  "bytes": 51
+ },
+ {
+  "id": "b058e2cb81a9",
+  "label": "benign",
+  "package": "@adobe/aio-lib-core-logging",
+  "bytes": 6065
+ },
+ {
+  "id": "ec1073eb2512",
+  "label": "benign",
+  "package": "@defra/wls-application-queue-processor",
+  "bytes": 1530
+ },
+ {
+  "id": "cfa5840e9195",
+  "label": "benign",
+  "package": "joplin-turndown-plugin-gfm",
+  "bytes": 6790
+ },
+ {
+  "id": "b83176a14672",
+  "label": "benign",
+  "package": "@yldfi/curve-amm-math",
+  "bytes": 24694
+ },
+ {
+  "id": "1b19343c5eb1",
+  "label": "benign",
+  "package": "broccoli-string-replace",
+  "bytes": 2000
+ },
+ {
+  "id": "456faf2ade84",
+  "label": "benign",
+  "package": "string-replace-to-array",
+  "bytes": 2833
+ },
+ {
+  "id": "90ec3812f3a0",
+  "label": "benign",
+  "package": "unified-doc-parse-csv",
+  "bytes": 363
+ },
+ {
+  "id": "48d0ba9efc6b",
+  "label": "benign",
+  "package": "react-file-input",
+  "bytes": 1461
+ },
+ {
+  "id": "bfd731560144",
+  "label": "benign",
+  "package": "@kreuzberg/html-to-markdown-node-linux-x64-musl",
+  "bytes": 107
+ },
+ {
+  "id": "4c73fe081164",
+  "label": "benign",
+  "package": "@knapsack/prettier-config",
+  "bytes": 106
+ },
+ {
+  "id": "d01f0daa0edf",
+  "label": "benign",
+  "package": "@socketregistry/array-buffer-byte-length",
+  "bytes": 216
+ },
+ {
+  "id": "2631713269d4",
+  "label": "benign",
+  "package": "angular-marked",
+  "bytes": 10125
+ },
+ {
+  "id": "bcafd9c225de",
+  "label": "benign",
+  "package": "@ashwinthomas/react-time-picker-dropdown",
+  "bytes": 17285
+ },
+ {
+  "id": "c59561c04928",
+  "label": "benign",
+  "package": "@dnlup/vue-cli-plugin-unit-ava",
+  "bytes": 1828
+ },
+ {
+  "id": "f3503a23ac2a",
+  "label": "benign",
+  "package": "center-align",
+  "bytes": 670
+ },
+ {
+  "id": "a6dbaa01070e",
+  "label": "benign",
+  "package": "@tanstack/react-query-devtools",
+  "bytes": 2216
+ },
+ {
+  "id": "319e16bed202",
+  "label": "benign",
+  "package": "exec-limiter",
+  "bytes": 3427
+ },
+ {
+  "id": "4f1ef740840b",
+  "label": "benign",
+  "package": "@gyugyu/textlint-plugin-yaml",
+  "bytes": 403
+ },
+ {
+  "id": "8c0cf7b88298",
+  "label": "benign",
+  "package": "@config-plugins/react-native-pdf",
+  "bytes": 1939
+ },
+ {
+  "id": "f0eb5ee39c3a",
+  "label": "benign",
+  "package": "roundup",
+  "bytes": 426
+ },
+ {
+  "id": "c007439db9dc",
+  "label": "benign",
+  "package": "vega-format",
+  "bytes": 6437
+ },
+ {
+  "id": "fa651db47721",
+  "label": "benign",
+  "package": "@automattic/material-design-icons",
+  "bytes": 47
+ },
+ {
+  "id": "fd3000bebea7",
+  "label": "benign",
+  "package": "@simonja/moment-date-range",
+  "bytes": 1652
+ },
+ {
+  "id": "770e458a2e9e",
+  "label": "benign",
+  "package": "@sindresorhus/string-hash",
+  "bytes": 120
+ },
+ {
+  "id": "c276a935bdbb",
+  "label": "benign",
+  "package": "@ceramicnetwork/stream-tile-handler",
+  "bytes": 77
+ },
+ {
+  "id": "3d1717bcba12",
+  "label": "benign",
+  "package": "koa-static-resolver",
+  "bytes": 9727
+ },
+ {
+  "id": "26e6ebcc1093",
+  "label": "benign",
+  "package": "vitepress-plugin-color-preview",
+  "bytes": 20817
+ },
+ {
+  "id": "028b658064f7",
+  "label": "benign",
+  "package": "@bifravst/random-words",
+  "bytes": 524
+ },
+ {
+  "id": "cd4713740d3e",
+  "label": "benign",
+  "package": "mdast-jsx",
+  "bytes": 260
+ },
+ {
+  "id": "49b9ee4ed758",
+  "label": "benign",
+  "package": "build-plugin-ice-logger",
+  "bytes": 6419
+ },
+ {
+  "id": "04f2a464747a",
+  "label": "benign",
+  "package": "stream-spec",
+  "bytes": 6898
+ },
+ {
+  "id": "4ce8dd117264",
+  "label": "benign",
+  "package": "esbuild-plugin-dsv",
+  "bytes": 2853
+ },
+ {
+  "id": "942394585e53",
+  "label": "benign",
+  "package": "amazon-date-parser",
+  "bytes": 6757
+ },
+ {
+  "id": "daf7dfa7300e",
+  "label": "benign",
+  "package": "@fean-developer/docker-yaml",
+  "bytes": 1471
+ },
+ {
+  "id": "a677dc0f3f78",
+  "label": "benign",
+  "package": "material-ui-rc-color-picker",
+  "bytes": 458
+ },
+ {
+  "id": "8c00d3cb461f",
+  "label": "benign",
+  "package": "react-ascii-play",
+  "bytes": 9152
+ },
+ {
+  "id": "26fbd856424e",
+  "label": "benign",
+  "package": "react-monthrange-picker",
+  "bytes": 63
+ },
+ {
+  "id": "482574174f64",
+  "label": "benign",
+  "package": "@xmpp/time",
+  "bytes": 822
+ },
+ {
+  "id": "e3e8767eec10",
+  "label": "benign",
+  "package": "yaml-kit",
+  "bytes": 82
+ },
+ {
+  "id": "7c46b7788c30",
+  "label": "benign",
+  "package": "label",
+  "bytes": 27117
+ },
+ {
+  "id": "f973cea4b9fe",
+  "label": "benign",
+  "package": "electron-serve",
+  "bytes": 3273
+ },
+ {
+  "id": "ad8783f63d67",
+  "label": "benign",
+  "package": "to-regex",
+  "bytes": 3643
+ },
+ {
+  "id": "7875fd666299",
+  "label": "benign",
+  "package": "niceware",
+  "bytes": 2735
+ },
+ {
+  "id": "f85f2dec9aa5",
+  "label": "benign",
+  "package": "npm-audit-csv",
+  "bytes": 2630
+ },
+ {
+  "id": "d1971bcff870",
+  "label": "benign",
+  "package": "@senka/text-to-ascii",
+  "bytes": 10107
+ },
+ {
+  "id": "986b9481e8a6",
+  "label": "benign",
+  "package": "@webiny/api-file-manager-s3",
+  "bytes": 1678
+ },
+ {
+  "id": "472f58879e19",
+  "label": "benign",
+  "package": "raptor-cache",
+  "bytes": 1850
+ },
+ {
+  "id": "795182a16d2a",
+  "label": "benign",
+  "package": "markdown-it-sup-alt",
+  "bytes": 1506
+ },
+ {
+  "id": "e288e7eae5f6",
+  "label": "benign",
+  "package": "js-yaml-bespoken",
+  "bytes": 81
+ },
+ {
+  "id": "82135b82d091",
+  "label": "benign",
+  "package": "tailwind-color-palette",
+  "bytes": 49
+ },
+ {
+  "id": "d5956347f1d9",
+  "label": "benign",
+  "package": "escape-goat",
+  "bytes": 920
+ },
+ {
+  "id": "c0b698cd1ca8",
+  "label": "benign",
+  "package": "array-intersection",
+  "bytes": 702
+ },
+ {
+  "id": "f30849c9ccc6",
+  "label": "benign",
+  "package": "ascii-tree-generator",
+  "bytes": 27221
+ },
+ {
+  "id": "7dc627adacf3",
+  "label": "benign",
+  "package": "charmed",
+  "bytes": 8186
+ },
+ {
+  "id": "6cdd1395689f",
+  "label": "benign",
+  "package": "@gregoriusrippenstein/erlang-red-unittest",
+  "bytes": 60
+ },
+ {
+  "id": "7be92709789a",
+  "label": "benign",
+  "package": "timeweb",
+  "bytes": 1691
+ },
+ {
+  "id": "090ed11ed9df",
+  "label": "benign",
+  "package": "@surgio/logger",
+  "bytes": 2719
+ },
+ {
+  "id": "b42ddb06ad0a",
+  "label": "benign",
+  "package": "cdate",
+  "bytes": 27857
+ },
+ {
+  "id": "ce30baa05087",
+  "label": "benign",
+  "package": "@dxos/config",
+  "bytes": 55
+ },
+ {
+  "id": "ad0d353dcb18",
+  "label": "benign",
+  "package": "tempdir-yaml",
+  "bytes": 2426
+ },
+ {
+  "id": "cd8add7a76ed",
+  "label": "benign",
+  "package": "@qntm-code/utils",
+  "bytes": 1720
+ },
+ {
+  "id": "cec410605e5a",
+  "label": "benign",
+  "package": "file-replace-loader",
+  "bytes": 148
+ },
+ {
+  "id": "0ce72cf45258",
+  "label": "benign",
+  "package": "@pie-lib/math-input",
+  "bytes": 2799
+ },
+ {
+  "id": "055991a08252",
+  "label": "benign",
+  "package": "sorted-queue",
+  "bytes": 2754
+ },
+ {
+  "id": "e9b81c468b41",
+  "label": "benign",
+  "package": "@phc/format",
+  "bytes": 6151
+ },
+ {
+  "id": "ccb539e49c59",
+  "label": "benign",
+  "package": "lockfile",
+  "bytes": 8420
+ },
+ {
+  "id": "8ac074af25ba",
+  "label": "benign",
+  "package": "yaml-files",
+  "bytes": 2667
+ },
+ {
+  "id": "7ae554823de8",
+  "label": "benign",
+  "package": "spliterator",
+  "bytes": 1082
+ },
+ {
+  "id": "7f3302b49945",
+  "label": "benign",
+  "package": "lru-map-cache",
+  "bytes": 927
+ },
+ {
+  "id": "cd5ab9d1f0a1",
+  "label": "benign",
+  "package": "@emerson-eps/color-tables",
+  "bytes": 62
+ },
+ {
+  "id": "2dd4ed2d7f4c",
+  "label": "benign",
+  "package": "ascii-flair",
+  "bytes": 5134
+ },
+ {
+  "id": "7f995198bdcb",
+  "label": "benign",
+  "package": "@quartzy/markdown-it-mentions",
+  "bytes": 3443
+ },
+ {
+  "id": "40269d71e272",
+  "label": "benign",
+  "package": "@fonoster/logger",
+  "bytes": 3087
+ },
+ {
+  "id": "b8416173a5b0",
+  "label": "benign",
+  "package": "@putout/plugin-remove-useless-array-constructor",
+  "bytes": 698
+ },
+ {
+  "id": "ee0176d84f5b",
+  "label": "benign",
+  "package": "@stdlib/assert-is-number-array",
+  "bytes": 1990
+ },
+ {
+  "id": "93c22e2d0e41",
+  "label": "benign",
+  "package": "color-picker-svelte",
+  "bytes": 457
+ },
+ {
+  "id": "f3cc6b30bc85",
+  "label": "benign",
+  "package": "textarea-markdown-editor",
+  "bytes": 887
+ },
+ {
+  "id": "120234a3452d",
+  "label": "benign",
+  "package": "parse-gitignore",
+  "bytes": 6680
+ },
+ {
+  "id": "6dbe54a708fe",
+  "label": "benign",
+  "package": "eslint-config-unjs",
+  "bytes": 2548
+ }
+]

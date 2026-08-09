@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 372" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+  <defs>
+    <style>
+      /* default visible so the panel degrades gracefully if SMIL is not animated */
+      text { font-size: 15px; }
+    </style>
+  </defs>
+  <!-- window -->
+  <rect x="1" y="1" width="818" height="370" rx="10" fill="#0d1117" stroke="#30363d"/>
+  <rect x="1" y="1" width="818" height="34" rx="10" fill="#161b22"/>
+  <rect x="1" y="24" width="818" height="11" fill="#161b22"/>
+  <circle cx="22" cy="18" r="6" fill="#ff5f56"/>
+  <circle cx="42" cy="18" r="6" fill="#ffbd2e"/>
+  <circle cx="62" cy="18" r="6" fill="#27c93f"/>
+  <text x="410" y="23" fill="#8b949e" text-anchor="middle" font-size="13">3S — semantic signatures for code</text>
+
+  <!-- lines -->
+  <text class="l" x="26" y="78" fill="#c9d1d9">$ 3s scan npm:debug@4.4.2
+    <animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0" keyTimes="0;0.02;0.05;0.9;1"/>
+  </text>
+
+  <text class="l" x="26" y="118" fill="#8b949e"><tspan fill="#58a6ff">deobfuscate</tspan>   76 KB obfuscated blob  →  414 lines recovered
+    <animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0" keyTimes="0;0.10;0.13;0.9;1"/>
+  </text>
+
+  <text class="l" x="26" y="150" fill="#8b949e"><tspan fill="#58a6ff">sign</tspan>          phi-1_5 activation signature  ·  dim 2048
+    <animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0" keyTimes="0;0.18;0.21;0.9;1"/>
+  </text>
+
+  <text class="l" x="26" y="182" fill="#8b949e"><tspan fill="#58a6ff">match</tspan>         <tspan fill="#39d353">3S:phi-1_5/crypto_clipper</tspan>   cos 0.95
+    <animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0" keyTimes="0;0.26;0.29;0.9;1"/>
+  </text>
+
+  <text class="l" x="26" y="222" fill="#f85149" font-weight="bold">VERDICT       MALICIOUS  ·  wallet-hook crypto-clipper
+    <animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0" keyTimes="0;0.35;0.38;0.9;1"/>
+  </text>
+
+  <text class="l" x="26" y="254" fill="#8b949e">raw obfuscated: <tspan fill="#f0883e">below chance</tspan>       deobfuscated: <tspan fill="#39d353">caught</tspan>
+    <animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0" keyTimes="0;0.43;0.46;0.9;1"/>
+  </text>
+
+  <line x1="26" y1="286" x2="794" y2="286" stroke="#21262d">
+    <animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0" keyTimes="0;0.49;0.52;0.9;1"/>
+  </line>
+
+  <text class="l" x="26" y="318" fill="#7ee787"># YARA saw random bytes. 3S saw what the code does.
+    <animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0" keyTimes="0;0.52;0.56;0.9;1"/>
+  </text>
+
+  <text class="l" x="26" y="348" fill="#6e7681" font-size="13">obfuscation-invariant · 87.9% family separation · 0.93 ROC-AUC on real npm malware
+    <animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0" keyTimes="0;0.58;0.62;0.9;1"/>
+  </text>
+
+  <!-- blinking cursor -->
+  <rect x="26" y="336" width="9" height="17" fill="#39d353">
+    <animate attributeName="opacity" dur="1s" repeatCount="indefinite" values="1;1;0;0" keyTimes="0;0.5;0.5;1"/>
+    <animate attributeName="x" dur="11s" repeatCount="indefinite" values="245;245;26" keyTimes="0;0.05;0.06"/>
+    <animate attributeName="y" dur="11s" repeatCount="indefinite"
+      values="66;66;106;138;170;210;242;306;336" keyTimes="0;0.04;0.10;0.18;0.26;0.35;0.43;0.52;0.62"/>
+  </rect>
+</svg>

@@ -1,0 +1,40 @@
+name: engine
+
+on:
+  push:
+    paths: ["engine/**", ".github/workflows/ci.yml"]
+  pull_request:
+    paths: ["engine/**", ".github/workflows/ci.yml"]
+  workflow_dispatch: {}
+
+jobs:
+  loop:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: engine
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Toolchain (gcc + AddressSanitizer)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc
+          echo "int main(void){char b[4];volatile char*p=b;p[9]=1;return 0;}" > /tmp/t.c
+          gcc -fsanitize=address -g /tmp/t.c -o /tmp/t
+          # sanity: the sanitizer must actually fire in this environment
+          if /tmp/t; then echo "ASan did not fire — oracle would be unsound"; exit 1; fi
+          echo "AddressSanitizer works"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install (offline core only — no torch/model weights in CI)
+        run: pip install -r requirements.txt
+
+      - name: Test the loop (oracle + matching + end-to-end, offline)
+        run: python -m pytest -q
+
+      - name: Held-out detection + verification report
+        run: python tools/evaluate.py

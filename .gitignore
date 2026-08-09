@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.o
+*.out
+a.out
+.DS_Store
+
+# build cruft
+__pycache__/
+*.pyc
+.pytest_cache/
