@@ -218,7 +218,7 @@ present in the reference database) or `defined` (the behavior and identifier are
 as shared vocabulary, and the centroid is open for contribution, per §10). The v0.1
 reference database ships seventeen `ref` families: four native memory-safety families in
 [`engine/`](engine/) and thirteen JavaScript behaviors in [`3s/`](3s/), which separate at
-**87.9% leave-one-out** (seven of thirteen perfectly); see [`3s/README.md`](3s/README.md). The remaining families
+**91.0% leave-one-out** (eight of thirteen perfectly); see [`3s/README.md`](3s/README.md). The remaining families
 fix the vocabulary so contributions and independent implementations agree on identifiers
 from day one, exactly as CWE fixes weakness names before any single tool covers them all.
 
@@ -283,8 +283,13 @@ environment harvesting, and network exfiltration are one behavior, collect sensi
 and send it out, so 3S records them as a single `data_exfiltration` family with the source
 as metadata. CWE splits this into three classes (CWE-522, CWE-526, CWE-200); the signature
 measured them as one, and the taxonomy follows the measurement. On the resulting thirteen
-JavaScript families, leave-one-out separation is 87.9%, and seven families separate
+JavaScript families, leave-one-out separation is 91.0%, and eight families separate
 perfectly (see [`3s/README.md`](3s/README.md)).
+
+**Per-language.** Signatures are model-relative and language-relative: the same behavior in
+Python and JavaScript does not share a centroid (Python-to-JS matching is 29.6%), so 3S
+carries a database per language, as YARA carries rules per format. The JavaScript families
+separate at 91.0% and the Python families at 88.9%; both are in [`3s/`](3s/).
 
 The taxonomy is open: the point of the standard is that anyone can contribute a `ref`
 signature for a `defined` family, or propose a new family, per §10.

@@ -1,3 +1,3 @@
-const vm = require("vm");
-const revive = (json) => vm.runInThisContext("(" + json + ")");
-module.exports = { revive };
+const funcster = require("funcster");
+const rebuild = (data) => funcster.deepDeserialize(JSON.parse(data));
+module.exports = { rebuild };

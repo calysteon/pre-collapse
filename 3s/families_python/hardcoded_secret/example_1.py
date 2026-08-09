@@ -1,0 +1,2 @@
+AWS_KEY = "AKIA_REDACTED_EXAMPLE_ID"
+AWS_SECRET = "REDACTED_example_secret_access_key"

@@ -36,8 +36,9 @@ FAMILIES = {
 "unsafe_deserialization": ("CWE-502", "deserialization of untrusted data into live objects", [
  'const serialize = require("node-serialize");\nconst restore = (s) => serialize.unserialize(s);\nmodule.exports = { restore };',
  'const { unserialize } = require("node-serialize");\nfunction hydrate(p){ return unserialize(Buffer.from(p, "base64").toString()); }\nmodule.exports = { hydrate };',
- 'const vm = require("vm");\nconst revive = (json) => vm.runInThisContext("(" + json + ")");\nmodule.exports = { revive };',
- 'const decode = (data) => eval("(" + data + ")");\nmodule.exports = { decode };',
+ 'const funcster = require("funcster");\nconst rebuild = (data) => funcster.deepDeserialize(JSON.parse(data));\nmodule.exports = { rebuild };',
+ 'function fromJSON(text){ const raw = JSON.parse(text); const obj = Object.create((global[raw.__type__]||Object).prototype); return Object.assign(obj, raw); }\nmodule.exports = { fromJSON };',
+ 'const { plainToInstance } = require("class-transformer");\nconst load = (cls, json) => plainToInstance(cls, JSON.parse(json));\nmodule.exports = { load };',
  'const yaml = require("js-yaml");\nconst parse = (s) => yaml.load(s, { schema: yaml.DEFAULT_FULL_SCHEMA });\nmodule.exports = { parse };']),
 "server_side_request_forgery": ("CWE-918", "server fetches a caller-controlled URL", [
  'const fetch = require("node-fetch");\nconst proxy = async (url) => { const r = await fetch(url); return r.text(); };\nmodule.exports = { proxy };',

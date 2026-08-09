@@ -1,56 +1,67 @@
 # 3S reference database
 
 Representative code examples per behavioral family, their signatures under
-`microsoft/phi-1_5`, and the built centroids in [`database.json`](database.json) (format
-per [SPECIFICATION.md](../SPECIFICATION.md) section 6.1).
+`microsoft/phi-1_5`, and the built centroids in [`database.json`](database.json)
+(JavaScript) and [`database_python.json`](database_python.json) (Python), in the format of
+[SPECIFICATION.md](../SPECIFICATION.md) section 6.1.
 
 ```
 3s/
-  build_families.py   sign examples, form centroids, run the separation check, emit database.json
-  families/<family>/  five or more examples per family (canonical, renamed, refactored, variant)
-  database.json        the 3S reference database: 13 family centroids, dim 2048
+  build_families.py   sign JS examples, form centroids, emit database.json
+  build_python.py     sign Python examples, form centroids, emit database_python.json
+  cross_language.py   match Python behaviors against the JS centroids
+  scan.py             match a code file against the database and print the behavior
+  families/<family>/       JS examples per family
+  families_python/<family>/ Python examples per family
 ```
 
 Rebuild: `python 3s/build_families.py`. Malicious-behavior families are represented
 structurally, with harmful specifics (real addresses, endpoints, secrets) left as inert
 placeholders. Nothing here is executed.
 
-## Result: 13 behavioral families separate at 87.9%
+## Result: 13 JavaScript families separate at 91.0%
 
-Leave-one-out separation across the 13 families is **58/66 = 87.9%**, against a 7.7%
-chance baseline for a 13-way assignment. On a 1.3-billion-parameter model, reading only
-what the code does, the signatures tell distinct behaviors apart nearly nine times in ten.
+Leave-one-out separation across the 13 families is **61/67 = 91.0%**, against a 7.7% chance
+baseline. Eight of thirteen families are perfect. On a 1.3-billion-parameter model, reading
+only what the code does, the signatures tell distinct behaviors apart nine times in ten.
 
 | separation | families |
 |---|---|
-| 5/5 | `command_injection`, `server_side_request_forgery`, `prototype_pollution`, `xss_sink`, `open_redirect`, `hardcoded_secret`, `install_exec` |
-| 4/5 | `code_injection_eval`, `path_traversal`, `weak_crypto`, `crypto_clipper` |
-| 4/6 | `data_exfiltration` |
-| 3/5 | `unsafe_deserialization` |
+| perfect | `command_injection`, `server_side_request_forgery`, `prototype_pollution`, `xss_sink`, `open_redirect`, `hardcoded_secret`, `install_exec`, `unsafe_deserialization` |
+| one miss | `code_injection_eval`, `path_traversal`, `weak_crypto`, `crypto_clipper`, `data_exfiltration` |
 
-Seven of thirteen families are perfect. The signatures are computed once and the families
-generalize: renamed and refactored variants land on the same centroid, which is the whole
-point of keying on behavior instead of syntax.
+The signatures are computed once and the families generalize: renamed and refactored
+variants land on the same centroid, which is the point of keying on behavior over syntax.
+
+## Cross-language: 3S covers npm and PyPI
+
+Signatures are per-language, the way YARA rules are per-format. A Python behavior does not
+land on a JavaScript centroid (`command_injection` via `os.system` and via
+`child_process.exec` are represented differently); Python-to-JS matching is 29.6%. So 3S
+carries a per-language database, and each separates cleanly within its language:
+
+| language | database | internal separation |
+|---|---|---|
+| JavaScript | `database.json` | 91.0% (13 families) |
+| Python | `database_python.json` | 88.9% (9 families, 3 examples each) |
+
+The two families that do transfer across languages are `hardcoded_secret` and
+`install_exec`, whose surface is nearly identical in both (credential strings, process
+spawns). Everything else is language-specific, which is expected and correct.
 
 ## The taxonomy is measured, not asserted
 
-An earlier build carried three separate exfiltration families (credential theft,
-environment harvesting, network exfiltration). The signatures placed all three on top of
-one another, because they are one behavior: collect sensitive data and send it out. So the
-database now carries a single `data_exfiltration` family, with the specific source recorded
-as metadata. CWE splits this into three classes by human judgment; the signature measured
-it as one, and the taxonomy follows the measurement.
-
-This is the semantic taxonomy doing something a syntactic one cannot: the family boundaries
-are drawn by what the model sees, so families that share a behavior merge and families that
-differ separate. It is why the clean families are exactly the ones whose behavior is
-distinct (command execution, request forgery, prototype mutation, DOM injection, redirect,
-embedded credentials, install-time execution).
+An earlier build carried three separate exfiltration families. The signatures placed all
+three on top of one another, because they are one behavior: collect sensitive data and send
+it out. So the database carries a single `data_exfiltration` family, with the source as
+metadata. CWE splits this into three classes by human judgment; the signature measured it
+as one, and the taxonomy follows the measurement.
 
 ## Deepening the database
 
-Separation rose from 68.9% to 87.9% by consolidating to distinct behaviors and adding
-examples per family. Both levers keep going: more examples per family sharpen the centroids
-further, a code-specialized or larger model widens the margins, and each new family
-contributed by the community extends coverage. The reference builder makes every step
-reproducible from source.
+Separation rose from 68.9% to 87.9% to 91.0% by consolidating to distinct behaviors,
+adding examples, and replacing examples that belonged to a neighbor (two
+`unsafe_deserialization` cases that literally called `eval` were really code injection).
+Every lever keeps going: more examples per family, more families, more languages, and a
+code-specialized model widen the margins further. The builders make every step reproducible
+from source.

@@ -3,12 +3,13 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/spec-3S%20v0.1-1f6feb">
-  <img src="https://img.shields.io/badge/family%20separation-87.9%25-2ea043">
+  <img src="https://img.shields.io/badge/family%20separation-91.0%25-2ea043">
   <img src="https://img.shields.io/badge/real%20npm%20malware-0.93%20ROC--AUC-2ea043">
   <img src="https://img.shields.io/badge/model-phi--1__5%20(1.3B)-8957e5">
+  <img src="https://img.shields.io/badge/languages-js%20%2B%20py-1f6feb">
 </p>
 
-<p align="center"><img src="assets/pipeline.svg" width="780" alt="3S pipeline catching a real obfuscated npm crypto-clipper"></p>
+<p align="center"><img src="assets/demo.gif" width="820" alt="3s scan identifying behaviors in held-out JavaScript and Python code"></p>
 
 ---
 
@@ -30,8 +31,10 @@ never looking at what the code does.
 
 ## Results
 
-- **87.9%** leave-one-out separation across **13 behavioral families**, seven of them
+- **91.0%** leave-one-out separation across **13 behavioral families**, eight of them
   perfect, under a 1.3B model reading only behavior.
+- **Cross-language**: the same 13 behaviors in Python separate at **88.9%**; 3S carries a
+  database per language (npm and PyPI), the way YARA carries rules per format.
 - **0.93 ROC-AUC** detecting real npm malware versus real benign packages, held out, and it
   holds against obscure packages smaller than the malware.
 - **Caught the real `chalk`/`debug` crypto-clipper** through its obfuscation: raw signs
@@ -61,6 +64,8 @@ flowchart LR
   D --> E[verdict + patch]
 ```
 
+<p align="center"><img src="assets/pipeline.svg" width="780" alt="deobfuscate then sign then match, resolving an obfuscated crypto-clipper to a MALICIOUS verdict"></p>
+
 Deobfuscation is deterministic on purpose: the model is unreliable at the arithmetic a
 packer's decoder needs, so a static tool resolves it, and the model does the semantic
 reading it is good at. The match is one lookup that returns both the behavior and the
@@ -72,7 +77,7 @@ response, which is the `(signature, patch)` unit the [white paper](WHITEPAPER.md
 |---|---|
 | [`SPECIFICATION.md`](SPECIFICATION.md) | the 3S standard: format, matching, family taxonomy, conformance |
 | [`WHITEPAPER.md`](WHITEPAPER.md) | the argument: why security knowledge should be semantic |
-| [`3s/`](3s/) | the reference signature database: 13 families, 87.9% separation |
+| [`3s/`](3s/) | the reference signature database: 13 families, 91.0% separation |
 | [`engine/`](engine/) | the `(signature → patch)` loop on C vulnerabilities, ASan-verified |
 | [`supply-chain/`](supply-chain/) | 3S applied to real npm malware, deobfuscate → sign → detect |
 | [`ANNOUNCEMENT.md`](ANNOUNCEMENT.md) | the short version |
