@@ -55,15 +55,26 @@ address, swap it, exfiltrate the token. A signature keyed on behavior has someth
 
 ## Quick start
 
+Scan code for malicious behavior and fail on a block-severity family:
+
 ```bash
 git clone https://github.com/calysteon/pre-collapse
-cd pre-collapse/engine
-pip install -r requirements.txt          # numpy, pytest, plus gcc for the oracle
-python scripts/demo.py                    # offline: signatures + database + real ASan runs
+cd pre-collapse
+pip install -r 3s/requirements.txt        # numpy + torch + transformers
+python 3s/scan.py path/to/app.js path/to/util.py
 ```
 
-Browse the reference signature database in [`3s/database.json`](3s/database.json), or
-rebuild it from source with `python 3s/build_families.py`.
+```
+  [BLOCK] app.js   [js]  3S:microsoft/phi-1_5/data_exfiltration  cos 0.96  margin 0.07  CWE-200
+          sends local data to a remote host
+```
+
+Drop it into CI with the ready [`.github/workflows/3s-scan.yml`](.github/workflows/3s-scan.yml)
+or the [`3s-scan`](.github/actions/3s-scan) composite action; use it as a pre-commit hook via
+[`.pre-commit-hooks.yml`](.pre-commit-hooks.yml). Run the offline `(signature → patch)` loop
+on C vulnerabilities with `cd engine && pip install -r requirements.txt && python scripts/demo.py`.
+Browse the signature database in [`3s/database.json`](3s/database.json), or rebuild it with
+`python 3s/build_families.py`.
 
 ## How it works
 

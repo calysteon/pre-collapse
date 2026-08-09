@@ -10,7 +10,8 @@ Representative code examples per behavioral family, their signatures under
   build_families.py   sign JS examples, form centroids, emit database.json
   build_python.py     sign Python examples, form centroids, emit database_python.json
   cross_language.py   match Python behaviors against the JS centroids
-  scan.py             match a code file against the database and print the behavior
+  scan.py             match code files against the database, gate on severity
+  policy.py           per-family severity (block vs warn), swappable without recompute
   families/<family>/       JS examples per family
   families_python/<family>/ Python examples per family
 ```
@@ -18,6 +19,41 @@ Representative code examples per behavioral family, their signatures under
 Rebuild: `python 3s/build_families.py`. Malicious-behavior families are represented
 structurally, with harmful specifics (real addresses, endpoints, secrets) left as inert
 placeholders. Nothing here is executed.
+
+## Scanning code
+
+`scan.py` signs each file, matches it to the nearest behavioral family, and attaches a
+severity from `policy.py`. It exits non-zero when something meets the `--fail-on` threshold,
+so it drops straight into CI or a pre-commit hook.
+
+```bash
+pip install -r 3s/requirements.txt          # numpy + torch + transformers
+
+python 3s/scan.py app.js utils.py            # table, fails on a block family
+python 3s/scan.py --json app.js              # one JSON record per file
+python 3s/scan.py --fail-on warn src/*.js    # also fail on weaknesses
+python 3s/scan.py --min-margin 0.02 app.js   # report ambiguous matches as inconclusive
+```
+
+```
+  [BLOCK] evil.js       [js]  3S:microsoft/phi-1_5/command_injection  cos 0.96  margin 0.03  CWE-78
+          runs a shell command built from input
+  [warn ] weakhash.js   [js]  3S:microsoft/phi-1_5/weak_crypto         cos 0.98  margin 0.05  CWE-327
+          uses a broken hash or cipher
+```
+
+Severity is policy, not signature: `block` is behavior that is malicious by intent in a
+dependency (`crypto_clipper`, `data_exfiltration`, `install_exec`, `code_injection_eval`,
+`command_injection`); everything else is `warn`. Edit `policy.py` to change what stops a
+build without touching a centroid. Deobfuscate packed code first (see
+[`../supply-chain/`](../supply-chain/)).
+
+**In CI.** A ready workflow lives at
+[`.github/workflows/3s-scan.yml`](../.github/workflows/3s-scan.yml); it scans the JS and
+Python changed in a pull request and fails on a block family. The reusable composite action
+is [`.github/actions/3s-scan`](../.github/actions/3s-scan). As a pre-commit hook, point
+`.pre-commit-config.yaml` at this repo and enable the `3s-scan` hook. The first run
+downloads a 1.3B model (~2.7 GB) and signs on CPU, then caches it.
 
 ## Result: 13 JavaScript families separate at 91.0%
 

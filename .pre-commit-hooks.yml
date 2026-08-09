@@ -1,0 +1,19 @@
+# Use 3S as a pre-commit hook. In a consuming repo's .pre-commit-config.yaml:
+#
+#   repos:
+#     - repo: https://github.com/calysteon/pre-collapse
+#       rev: main
+#       hooks:
+#         - id: 3s-scan
+#
+# The hook signs staged JS/PY with a 1.3B model, so the first run is slow while the model
+# downloads; pass --fail-on warn to surface weaknesses too, or --min-margin to suppress
+# ambiguous matches.
+- id: 3s-scan
+  name: 3S behavioral scan
+  description: match staged code against the 3S behavioral-signature database
+  entry: python 3s/scan.py --fail-on block
+  language: python
+  types_or: [javascript, python]
+  additional_dependencies: ["numpy>=1.24", "transformers>=4.40", "torch>=2.0"]
+  require_serial: true

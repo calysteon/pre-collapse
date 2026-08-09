@@ -12,6 +12,10 @@
    "family": "code_injection_eval",
    "cwe": "CWE-95",
    "description": "dynamic evaluation of caller-supplied source",
+   "action": {
+    "kind": "block",
+    "note": "evaluates caller- or network-supplied source"
+   },
    "members": [
     "c0dd5fdbb755a9da",
     "b8e80fde5cef30d1",
@@ -2074,6 +2078,10 @@
    "family": "command_injection",
    "cwe": "CWE-78",
    "description": "shell command built from unsanitized input",
+   "action": {
+    "kind": "block",
+    "note": "runs a shell command built from input"
+   },
    "members": [
     "308a8bff4e1d04ed",
     "aff26a5c108118f4",
@@ -4136,6 +4144,10 @@
    "family": "crypto_clipper",
    "cwe": "CWE-749",
    "description": "browser wallet-transaction hijack",
+   "action": {
+    "kind": "block",
+    "note": "hijacks wallet or transaction targets"
+   },
    "members": [
     "a42993dff6599b3e",
     "0175cac693da5504",
@@ -6198,6 +6210,10 @@
    "family": "data_exfiltration",
    "cwe": "CWE-200",
    "description": "collect sensitive data and send it to a remote endpoint",
+   "action": {
+    "kind": "block",
+    "note": "sends local data to a remote host"
+   },
    "members": [
     "fa9271b0c490b3f5",
     "92ab2c4fa7a78149",
@@ -8261,6 +8277,10 @@
    "family": "hardcoded_secret",
    "cwe": "CWE-798",
    "description": "credential embedded in source",
+   "action": {
+    "kind": "warn",
+    "note": "embeds a credential in source"
+   },
    "members": [
     "6aa01819af8ea4d4",
     "ddd60bc156718c2c",
@@ -10323,6 +10343,10 @@
    "family": "install_exec",
    "cwe": "CWE-829",
    "description": "install lifecycle hook runs a second-stage script",
+   "action": {
+    "kind": "block",
+    "note": "executes on install or drops a payload"
+   },
    "members": [
     "64c43435d558ded8",
     "de8ab1f177962397",
@@ -12385,6 +12409,10 @@
    "family": "open_redirect",
    "cwe": "CWE-601",
    "description": "HTTP redirect to a caller-controlled location",
+   "action": {
+    "kind": "warn",
+    "note": "redirects to a caller-controlled location"
+   },
    "members": [
     "1a377ce5e0b0bc96",
     "a99ca8e0584f1083",
@@ -14447,6 +14475,10 @@
    "family": "path_traversal",
    "cwe": "CWE-22",
    "description": "filesystem path built from unsanitized input",
+   "action": {
+    "kind": "warn",
+    "note": "opens a caller-controlled filesystem path"
+   },
    "members": [
     "dc6b0ec8df320042",
     "7ba97ed3c8fdb392",
@@ -16509,6 +16541,10 @@
    "family": "prototype_pollution",
    "cwe": "CWE-1321",
    "description": "recursive merge of untrusted keys into an object",
+   "action": {
+    "kind": "warn",
+    "note": "writes through __proto__ or constructor"
+   },
    "members": [
     "cfa28cfdfb7f9616",
     "3521dfec9bfee5a4",
@@ -18571,6 +18607,10 @@
    "family": "server_side_request_forgery",
    "cwe": "CWE-918",
    "description": "server fetches a caller-controlled URL",
+   "action": {
+    "kind": "warn",
+    "note": "fetches a caller-controlled URL"
+   },
    "members": [
     "494702acaac738a0",
     "e92211fa4dd27008",
@@ -20633,6 +20673,10 @@
    "family": "unsafe_deserialization",
    "cwe": "CWE-502",
    "description": "deserialization of untrusted data into live objects",
+   "action": {
+    "kind": "warn",
+    "note": "reconstructs objects from untrusted data"
+   },
    "members": [
     "ee47420784a40bf7",
     "2be3833ff0832a18",
@@ -22696,6 +22740,10 @@
    "family": "weak_crypto",
    "cwe": "CWE-327",
    "description": "broken or outdated cryptographic primitive",
+   "action": {
+    "kind": "warn",
+    "note": "uses a broken hash or cipher"
+   },
    "members": [
     "6b12c6db2ab5b5e7",
     "8a9697ba95e28c78",
@@ -24758,6 +24806,10 @@
    "family": "xss_sink",
    "cwe": "CWE-79",
    "description": "untrusted markup written to the DOM",
+   "action": {
+    "kind": "warn",
+    "note": "writes unescaped input into the DOM"
+   },
    "members": [
     "7eea73c17f4b1150",
     "b40e3157569b49c4",

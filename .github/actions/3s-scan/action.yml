@@ -1,0 +1,53 @@
+name: "3S scan"
+description: "Match changed code against the 3S behavioral-signature database and fail on malicious families."
+branding:
+  icon: "shield"
+  color: "blue"
+
+inputs:
+  files:
+    description: "Whitespace-separated list of files to scan. Defaults to all .js and .py under the workspace."
+    required: false
+    default: ""
+  fail-on:
+    description: "Severity that fails the job: block, warn, or none."
+    required: false
+    default: "block"
+  model:
+    description: "Model descriptor to sign with."
+    required: false
+    default: "microsoft/phi-1_5"
+  python-version:
+    description: "Python version to run the scanner under."
+    required: false
+    default: "3.11"
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    # The 1.3B model is downloaded once and cached across runs; the first run is slow.
+    - name: Cache the signing model
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/huggingface/hub
+        key: hf-${{ inputs.model }}
+
+    - name: Install the scanner
+      shell: bash
+      run: pip install -r "${{ github.action_path }}/../../../3s/requirements.txt"
+
+    - name: 3S scan
+      shell: bash
+      run: |
+        FILES="${{ inputs.files }}"
+        if [ -z "$FILES" ]; then
+          FILES=$(find . -type f \( -name '*.js' -o -name '*.py' \) \
+            -not -path '*/node_modules/*' -not -path '*/.git/*')
+        fi
+        if [ -z "$FILES" ]; then echo "no files to scan"; exit 0; fi
+        python "${{ github.action_path }}/../../../3s/scan.py" \
+          --fail-on "${{ inputs.fail-on }}" $FILES

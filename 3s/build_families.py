@@ -12,7 +12,9 @@ from pathlib import Path
 import numpy as np
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / "engine"))
+sys.path.insert(0, str(ROOT))
 from precollapse.signature import ModelBackend, cosine  # noqa: E402
+import policy  # noqa: E402
 
 FAMILIES = {
 "command_injection": ("CWE-78", "shell command built from unsanitized input", [
@@ -116,7 +118,9 @@ def main():
             v = mb.encode(code)
             vecs.append(v); sigs.append(v); labels.append(fam); hashes.append(key(code))
         c = np.mean(vecs, axis=0); c = c / (np.linalg.norm(c) + 1e-9)
+        level, note = policy.severity(fam)
         entries.append({"family": fam, "cwe": cwe, "description": desc,
+                        "action": {"kind": level, "note": note},
                         "members": hashes, "centroid": [round(float(x), 6) for x in c]})
         print(f"  signed {fam:32s} ({len(variants)} examples)  {time.time()-t0:.0f}s", flush=True)
 
