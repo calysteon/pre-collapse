@@ -36,8 +36,13 @@ jobs:
             | grep -E '\.(js|py)$' \
             | grep -vE '(^|/)(node_modules|dist|build|vendor)/' \
             | grep -vE '^(3s/|engine/|supply-chain/|assets/)' || true)
-          echo "files=$(echo $files | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
-          echo "changed: $files"
+          if [ -z "$files" ]; then
+            echo "files=" >> "$GITHUB_OUTPUT"
+            echo "changed: (none outside the standard's own signature trees)"
+          else
+            echo "files=$(printf '%s ' $files)" >> "$GITHUB_OUTPUT"
+            echo "changed: $files"
+          fi
 
       - name: 3S behavioral scan
         if: steps.changed.outputs.files != ''

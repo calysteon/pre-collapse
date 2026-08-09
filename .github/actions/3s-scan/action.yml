@@ -43,7 +43,8 @@ runs:
     - name: 3S scan
       shell: bash
       run: |
-        FILES="${{ inputs.files }}"
+        # normalize: collapse whitespace so a blank or space-only input reads as empty
+        FILES="$(echo ${{ inputs.files }})"
         if [ -z "$FILES" ]; then
           FILES=$(find . -type f \( -name '*.js' -o -name '*.py' \) \
             -not -path '*/node_modules/*' -not -path '*/.git/*')
