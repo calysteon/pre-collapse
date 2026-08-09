@@ -35,7 +35,7 @@ variants land on the same centroid, which is the point of keying on behavior ove
 
 ## Cross-language: 3S covers npm and PyPI
 
-Signatures are per-language, the way YARA rules are per-format. A Python behavior does not
+Signatures are per-language. A Python behavior does not
 land on a JavaScript centroid (`command_injection` via `os.system` and via
 `child_process.exec` are represented differently); Python-to-JS matching is 29.6%. So 3S
 carries a per-language database, and each separates cleanly within its language:
