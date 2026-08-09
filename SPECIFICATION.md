@@ -322,6 +322,12 @@ method is still weak).
 4. Contributions MUST declare their model descriptor; a maintainer re-projects to the
    canonical model if it differs.
 
+An integrity gate enforces these mechanically: every contribution to the reference registry
+runs [`3s/validate.py`](3s/validate.py), which confirms each family carries a severity, each
+declared member hash matches an example file, and no example is duplicated, so a database can
+never drift out of sync with the corpus it claims to summarize. The full contributor workflow
+is [`3s/CONTRIBUTING.md`](3s/CONTRIBUTING.md).
+
 ---
 
 ## 11. Open problems (honest status)

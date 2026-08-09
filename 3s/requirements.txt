@@ -1,0 +1,7 @@
+# The scanner signs code with a real model, so unlike the offline engine core it needs
+# torch + transformers in addition to numpy. CPU wheels are enough.
+#   pip install -r 3s/requirements.txt
+numpy>=1.24
+transformers>=4.40
+# CPU build of torch; on a machine with CUDA, install the matching GPU wheel instead.
+torch>=2.0

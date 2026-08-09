@@ -13,7 +13,9 @@ from pathlib import Path
 import numpy as np
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / "engine"))
+sys.path.insert(0, str(ROOT))
 from precollapse.signature import ModelBackend, cosine  # noqa: E402
+import policy  # noqa: E402
 from cross_language import PY  # reuse the Python examples
 
 CWE = {"command_injection":"CWE-78","code_injection_eval":"CWE-95","path_traversal":"CWE-22",
@@ -34,7 +36,9 @@ def main():
             (d / f"example_{i}.py").write_text(code + "\n")
             v = mb.encode(code); vecs.append(v); sigs.append(v); labels.append(fam); hashes.append(key(code))
         c = np.mean(vecs, axis=0); c = c/(np.linalg.norm(c)+1e-9)
-        entries.append({"family": fam, "cwe": CWE[fam], "members": hashes,
+        level, note = policy.severity(fam)
+        entries.append({"family": fam, "cwe": CWE[fam],
+                        "action": {"kind": level, "note": note}, "members": hashes,
                         "centroid": [round(float(x),6) for x in c]})
     fams = sorted(set(labels)); correct = 0; per = {f:[0,0] for f in fams}
     for i in range(len(sigs)):

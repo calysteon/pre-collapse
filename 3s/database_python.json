@@ -12,6 +12,10 @@
   {
    "family": "code_injection_eval",
    "cwe": "CWE-95",
+   "action": {
+    "kind": "block",
+    "note": "evaluates caller- or network-supplied source"
+   },
    "members": [
     "4a8297acbea4ec12",
     "49ff6ad7aad335f7",
@@ -2071,6 +2075,10 @@
   {
    "family": "command_injection",
    "cwe": "CWE-78",
+   "action": {
+    "kind": "block",
+    "note": "runs a shell command built from input"
+   },
    "members": [
     "18ee86072c789314",
     "62591dcd66a1f8e2",
@@ -4130,6 +4138,10 @@
   {
    "family": "data_exfiltration",
    "cwe": "CWE-200",
+   "action": {
+    "kind": "block",
+    "note": "sends local data to a remote host"
+   },
    "members": [
     "f791ffdad5dcacba",
     "35f30f0f64ce7e11",
@@ -6189,6 +6201,10 @@
   {
    "family": "hardcoded_secret",
    "cwe": "CWE-798",
+   "action": {
+    "kind": "warn",
+    "note": "embeds a credential in source"
+   },
    "members": [
     "75dccd94463b8b02",
     "86f3446a75c54ab2",
@@ -8248,6 +8264,10 @@
   {
    "family": "install_exec",
    "cwe": "CWE-829",
+   "action": {
+    "kind": "block",
+    "note": "executes on install or drops a payload"
+   },
    "members": [
     "3dda81e3eeed4911",
     "603f611d4eb67895",
@@ -10307,6 +10327,10 @@
   {
    "family": "path_traversal",
    "cwe": "CWE-22",
+   "action": {
+    "kind": "warn",
+    "note": "opens a caller-controlled filesystem path"
+   },
    "members": [
     "b2a27d114bbbb58f",
     "bf8d3ef7f05bc1ba",
@@ -12366,6 +12390,10 @@
   {
    "family": "server_side_request_forgery",
    "cwe": "CWE-918",
+   "action": {
+    "kind": "warn",
+    "note": "fetches a caller-controlled URL"
+   },
    "members": [
     "02f749f1804c4d3b",
     "a27fe67e648a9ae9",
@@ -14425,6 +14453,10 @@
   {
    "family": "unsafe_deserialization",
    "cwe": "CWE-502",
+   "action": {
+    "kind": "warn",
+    "note": "reconstructs objects from untrusted data"
+   },
    "members": [
     "dde761aaa3bbb440",
     "16f8e5e4c1300a51",
@@ -16484,6 +16516,10 @@
   {
    "family": "weak_crypto",
    "cwe": "CWE-327",
+   "action": {
+    "kind": "warn",
+    "note": "uses a broken hash or cipher"
+   },
    "members": [
     "cc299df83aa78d2d",
     "5d8b6998077ce8d3",

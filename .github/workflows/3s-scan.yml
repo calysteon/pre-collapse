@@ -1,0 +1,40 @@
+name: 3s-scan
+
+# Behavioral scan of changed JavaScript and Python on every pull request. This is the
+# adoption front-end: a maintainer sees a block-severity family (crypto_clipper,
+# data_exfiltration, install_exec, ...) flagged inline before the code merges.
+#
+# Note: the first run downloads a 1.3B model (~2.7 GB) and signs on CPU, so it is not
+# instant; the model is cached across runs. For a large monorepo, scope `paths:` or pass
+# an explicit changed-files list.
+
+on:
+  pull_request:
+    paths: ["**/*.js", "**/*.py"]
+  workflow_dispatch: {}
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Collect changed JS/PY files
+        id: changed
+        run: |
+          base="${{ github.event.pull_request.base.sha }}"
+          head="${{ github.sha }}"
+          files=$(git diff --name-only --diff-filter=d "$base" "$head" \
+            | grep -E '\.(js|py)$' \
+            | grep -vE '(^|/)(node_modules|dist|build|vendor)/' || true)
+          echo "files=$(echo $files | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
+          echo "changed: $files"
+
+      - name: 3S behavioral scan
+        if: steps.changed.outputs.files != ''
+        uses: ./.github/actions/3s-scan
+        with:
+          files: ${{ steps.changed.outputs.files }}
+          fail-on: block
