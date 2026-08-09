@@ -48,6 +48,9 @@ address, swap it, exfiltrate the token. A signature keyed on behavior has someth
 - **Cross-language**: the same 13 behaviors in Python separate at **88.9%**; 3S carries a
   signature database per language (npm and PyPI), since a behavior reads differently across
   ecosystems.
+- **Not a one-model artifact**: a second, different-lineage model (Qwen2.5-Coder-0.5B, half
+  the size) separates the same 13 families at **76.1%**, an order of magnitude above the 7.7%
+  chance floor. The structure is real; the larger model just reads it more cleanly.
 - **0.93 ROC-AUC** distinguishing real npm malware from real benign packages, held out, and
   it holds against obscure packages smaller than the malware.
 - **Caught the real `chalk`/`debug` crypto-clipper** through its obfuscation: raw signs
