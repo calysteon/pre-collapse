@@ -1,29 +1,28 @@
 # Announcing 3S: semantic signatures for code
 
-For thirty years, the way we describe malicious or vulnerable code has been syntactic. A
-YARA rule lists bytes and strings. A CVE is a fingerprint of one build. A CWE class is a
-sentence a human wrote. All three share a single weakness: the attacker controls the
-syntax. Rename a variable, flatten the control flow, encode the strings, and the signature
-no longer matches, even though the code does exactly what it did before.
+Most ways we describe malicious or vulnerable code read the surface: a rule lists bytes and
+strings, a CVE fingerprints one build, a CWE class is a sentence a human wrote. These read
+real signals and they are worth running. They also share a blind spot, one the attacker
+controls directly: rename a variable, flatten the control flow, encode the strings, and the
+description no longer matches, even though the code does exactly what it did before.
 
 The 2025 and 2026 npm supply-chain attacks made this concrete at scale. The compromised
 `chalk` and `debug` releases shipped a crypto-clipper as a 76 KB obfuscated blob. The
 Shai-Hulud and keyv worms hid credential stealers behind packing and inside files scanners
-do not read. Each of these evaded syntactic detection by construction, because syntactic
-detection was never looking at what the code does.
+do not read. What stayed constant through every rewrite was the behavior.
 
 ## The proposal
 
-**3S**, the Semantic Signature Specification, defines a different unit. A semantic
-signature is a fixed-length vector that a small model derives from what code does, read
-from the model's own representation rather than from the surface text. Because it tracks
-behavior, it survives the transformations that defeat syntax: renaming, refactoring,
+**3S**, the Semantic Signature Specification, defines a unit keyed on behavior. A semantic
+signature is a fixed-length vector that a small model derives from what code does, read from
+the model's own representation rather than from the surface text. Because it tracks behavior,
+it survives the transformations that defeat surface matching: renaming, refactoring,
 minification, and, once the packing is deterministically resolved, obfuscation.
 
-Where a YARA rule says "these bytes appear," a 3S signature says "this code behaves like
-this," and it keeps saying it after the bytes change. 3S is to behavior what YARA is to
-bytes: a portable format for signatures, a family taxonomy that plays the role CWE plays
-for weaknesses, and a matching procedure with stated invariance guarantees.
+3S is meant to sit alongside the tools you already run, not to replace them. It adds a
+behavioral layer, and it earns its keep exactly where surface signals go quiet. It brings
+three things: a portable format for the signature, a family taxonomy that names what code
+does, and a matching procedure with stated invariance guarantees.
 
 ## The evidence
 
@@ -51,9 +50,5 @@ failure modes does not deserve adoption.
 
 Read the [specification](SPECIFICATION.md). Run the [reference
 implementation](engine/). Contribute a signature for a family that is defined but not yet
-populated, or propose a new one. The taxonomy is meant to grow the way YARA rulesets and
-the CWE list grew, by many hands agreeing on a shared vocabulary.
-
-The syntactic era of security signatures is ending because the attackers ended it. The
-representation that survives is the one the model forms when it reads the code. 3S is the
-format for writing it down.
+populated, or propose a new one with the corpus that grounds it. The taxonomy is meant to
+grow by many hands agreeing on a shared vocabulary.

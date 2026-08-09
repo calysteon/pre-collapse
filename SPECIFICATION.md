@@ -2,25 +2,19 @@
 
 **Version 0.1 (draft proposal) · a portable format for obfuscation-invariant code signatures**
 
-**3S** (the three S's of **S**emantic **S**ignature **S**pecification) is to behavior what
-YARA is to bytes: a shared, portable format for *signatures*, but keyed on what code
-**does**, not how it is written. A 3S signature is written `3S:<model>/<family>`, and a 3S
-database of families is the semantic counterpart to a YARA ruleset.
+**3S** (the three S's of **S**emantic **S**ignature **S**pecification) is a shared, portable
+format for code *signatures* keyed on what code **does**, not how it is written. A 3S
+signature is written `3S:<model>/<family>`, and a 3S database groups families of behavior.
 
-> For thirty years the unit of security knowledge has been a *syntactic* pair, a **YARA**
-> rule (bytes/strings), a **CVE** fingerprint, a **CWE** class written in prose. Syntax
-> breaks the moment code is renamed, refactored, minified, or obfuscated. This document
-> specifies the alternative the [Pre-Collapse white paper](README.md) argues for: a
-> **semantic signature**: a fixed-length vector a small model derives from *what code
-> does*, together with a portable format for expressing, sharing, matching, and
-> classifying such signatures.
->
-> Where a YARA rule says *"these bytes appear,"* a semantic signature says *"this code
-> behaves like this,"* and keeps saying it after the bytes change.
+> This document specifies a **semantic signature**: a fixed-length vector a small model
+> derives from *what code does*, together with a portable format for expressing, sharing,
+> matching, and classifying such signatures. It reads a signal that surface matching cannot,
+> one that survives when code is renamed, refactored, minified, or (once packing is
+> deterministically resolved) obfuscated. It is designed to run alongside existing
+> byte, string, AST, and taint tooling, adding a behavioral layer where those go quiet.
 
 This is a **proposal with a working reference implementation** ([`engine/`](engine/),
-[`supply-chain/`](supply-chain/)), not a finished standard. It is versioned so it can
-evolve, exactly as YARA and CWE did.
+[`supply-chain/`](supply-chain/)), not a finished standard. It is versioned so it can evolve.
 
 ---
 
@@ -202,12 +196,13 @@ of one package MAY be aggregated into a single package-level signature.
 
 ---
 
-## 8. The family taxonomy (a semantic successor to CWE)
+## 8. The family taxonomy
 
-Families are the shared vocabulary. Unlike CWE, a family is **defined by its centroid
-signature**, not by prose, so it is machine-readable, auto-derivable (cluster signatures),
-and it **grows itself** as new code is read. A family SHOULD carry a human label and, where
-one exists, a CWE cross-reference, but the signature is authoritative.
+Families are the shared vocabulary. A family is **defined by its centroid signature**, not by
+prose, so it is machine-readable, auto-derivable (cluster signatures), and it **grows itself**
+as new code is read. A family SHOULD carry a human label and, where one exists, a CWE
+cross-reference; the CWE link is how a behavioral family and a prose weakness class point at
+each other, and the signature is what 3S matches on.
 
 **Family identifiers** are stable lowercase `snake_case` strings, addressed globally as
 `3S:<model>/<family>`. The taxonomy is grouped by domain for readability only; the family
@@ -288,7 +283,7 @@ perfectly (see [`3s/README.md`](3s/README.md)).
 
 **Per-language.** Signatures are model-relative and language-relative: the same behavior in
 Python and JavaScript does not share a centroid (Python-to-JS matching is 29.6%), so 3S
-carries a database per language, as YARA carries rules per format. The JavaScript families
+carries a database per language. The JavaScript families
 separate at 91.0% and the Python families at 88.9%; both are in [`3s/`](3s/).
 
 The taxonomy is open: the point of the standard is that anyone can contribute a `ref`
@@ -347,10 +342,14 @@ Standards evolve. This is v0.1.
 
 ## 12. Relationship to prior art
 
-- **YARA**: syntactic string/byte rules. Semantic signatures are the behavioral
-  counterpart: derived not authored, invariant not brittle.
-- **CWE**: a human-authored weakness taxonomy. The family taxonomy (§8) is its
-  machine-derivable, signature-defined successor.
+3S is complementary to the tools below, not a replacement for any of them; each reads a
+signal 3S does not, and 3S adds a behavioral one they lack.
+
+- **YARA**: syntactic string/byte rules, authored by hand and fast to run. A semantic
+  signature is derived rather than authored and holds across renaming and refactoring; the
+  two pair naturally, syntax for the known payload, behavior for its rewrites.
+- **CWE**: a human-authored weakness taxonomy that 3S families cross-reference (§8). CWE
+  names the weakness in prose; a 3S family grounds a behavior in a signature you can match.
 - **VUDDY / MVP / MOVERY**: vulnerable-clone detection on tokens/slices/CFGs. This spec
   keys the same `(vulnerability, patch)` mechanism on the representation that survives the
   modification those systems fight.
