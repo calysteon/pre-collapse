@@ -1,5 +1,10 @@
-<h1 align="center">3S</h1>
-<p align="center"><b>Semantic Signature Specification.</b> A portable, behavioral signature for what code does.</p>
+<p align="center">
+  <a href="https://claude.ai/code/artifact/18742efc-66dc-4770-87ea-5cee9b2f7a80">
+    <img src="assets/hero.png" width="900" alt="Every behavior leaves a fingerprint. A small model reads what code does and reduces it to a vector; same behavior, similar vector, even renamed, reformatted, or obfuscated.">
+  </a>
+</p>
+
+<p align="center"><b>3S, the Semantic Signature Specification.</b> A portable, behavioral signature for what code does.</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/spec-3S%20v0.1-1f6feb">
@@ -9,9 +14,11 @@
   <img src="https://img.shields.io/badge/languages-js%20%2B%20py-1f6feb">
 </p>
 
-<p align="center"><img src="assets/demo.gif" width="820" alt="3s scan identifying behaviors in held-out JavaScript and Python code"></p>
-
-<p align="center"><a href="https://claude.ai/code/artifact/18742efc-66dc-4770-87ea-5cee9b2f7a80"><b>Open the interactive console</b></a> &nbsp;·&nbsp; pick a snippet, see its signature and confidence</p>
+<p align="center">
+  <a href="https://claude.ai/code/artifact/18742efc-66dc-4770-87ea-5cee9b2f7a80"><b>Open the interactive console</b></a>
+  &nbsp;&middot;&nbsp; <a href="SPECIFICATION.md">Read the spec</a>
+  &nbsp;&middot;&nbsp; <a href="#quick-start">Scan your code</a>
+</p>
 
 ---
 
@@ -77,6 +84,8 @@ python 3s/scan.py path/to/app.js path/to/util.py
   [BLOCK] app.js   [js]  3S:microsoft/phi-1_5/data_exfiltration  cos 0.96  margin 0.07  CWE-200
           sends local data to a remote host
 ```
+
+<p align="center"><img src="assets/demo.gif" width="760" alt="3s scan identifying behaviors in held-out JavaScript and Python code"></p>
 
 Drop it into CI with the ready [`.github/workflows/3s-scan.yml`](.github/workflows/3s-scan.yml)
 or the [`3s-scan`](.github/actions/3s-scan) composite action; use it as a pre-commit hook via
