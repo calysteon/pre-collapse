@@ -106,6 +106,8 @@ response, which is the `(signature, patch)` unit the [white paper](WHITEPAPER.md
 
 ## Contributing
 
-The taxonomy is meant to grow. Add a signature for a family that is defined but not yet
-populated, or propose a new behavior with the corpus that grounds it. See
-[`SPECIFICATION.md`](SPECIFICATION.md) section 10 and [`3s/README.md`](3s/README.md).
+The registry grows by many hands agreeing on a shared vocabulary. Deepen a family with more
+examples, or add a behavior the taxonomy does not cover yet. Every pull request that touches
+the database runs an integrity check ([`3s/validate.py`](3s/validate.py)) that confirms the
+committed centroids and member hashes still match the corpus. See
+[`3s/CONTRIBUTING.md`](3s/CONTRIBUTING.md) and [`SPECIFICATION.md`](SPECIFICATION.md) section 10.

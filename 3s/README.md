@@ -12,6 +12,8 @@ Representative code examples per behavioral family, their signatures under
   cross_language.py   match Python behaviors against the JS centroids
   scan.py             match code files against the database, gate on severity
   policy.py           per-family severity (block vs warn), swappable without recompute
+  validate.py         model-free integrity check: database matches corpus
+  CONTRIBUTING.md     how to deepen a family or add a new behavior
   families/<family>/       JS examples per family
   families_python/<family>/ Python examples per family
 ```

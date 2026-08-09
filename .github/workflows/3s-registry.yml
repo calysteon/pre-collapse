@@ -1,0 +1,59 @@
+name: 3s-registry
+
+# Guards the signature registry. Every pull request that touches the database or the corpus
+# gets a fast, model-free integrity check. Recomputing centroids needs the 1.3B model, so it
+# runs only when a maintainer dispatches it (or on a push to the default branch), not on
+# every contributor PR.
+
+on:
+  pull_request:
+    paths: ["3s/**"]
+  push:
+    branches: [main]
+    paths: ["3s/**"]
+  workflow_dispatch: {}
+
+jobs:
+  validate:
+    name: Registry integrity (no model)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate database against corpus
+        run: python 3s/validate.py
+
+  rebuild:
+    name: Recompute centroids and check separation
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Cache the signing model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface/hub
+          key: hf-microsoft-phi-1_5
+      - name: Install the scanner stack
+        run: pip install -r 3s/requirements.txt
+      - name: Rebuild JS families and gate on separation
+        run: |
+          out=$(python 3s/build_families.py)
+          echo "$out"
+          pct=$(echo "$out" | grep -oE 'separation: [0-9]+/[0-9]+ = [0-9.]+%' | grep -oE '[0-9.]+%$' | tr -d '%')
+          echo "JS separation: ${pct}%"
+          awk "BEGIN{exit !(${pct:-0} >= 85.0)}" || { echo "JS separation regressed below 85%"; exit 1; }
+      - name: Rebuild Python families and gate on separation
+        run: |
+          out=$(python 3s/build_python.py)
+          echo "$out"
+          pct=$(echo "$out" | grep -oE '[0-9.]+%' | tail -1 | tr -d '%')
+          echo "PY separation: ${pct}%"
+          awk "BEGIN{exit !(${pct:-0} >= 82.0)}" || { echo "PY separation regressed below 82%"; exit 1; }
+      - name: Re-validate after rebuild
+        run: python 3s/validate.py
